@@ -1,0 +1,48 @@
+/* =========================
+   GLOBAL TOKENS (LIGHT)
+========================= */
+
+:root {
+  /* Background */
+  --bg: 249 249 251;            /* neutrals.25 */
+  --bg-muted: 238 240 241;      /* neutrals.50 */
+
+  /* Text */
+  --fg: 77 82 86;               /* neutrals.700 */
+  --fg-muted: 123 132 138;      /* neutrals.500 */
+
+  /* Brand */
+  --primary: 200 16 46;         /* primary.500 */
+  --primary-hover: 132 0 23;    /* primary.700 */
+  --primary-fg: 255 255 255;
+
+  /* Border */
+  --border: 202 206 208;        /* neutrals.200 */
+
+  /* Status */
+  --success: 41 169 91;
+  --warning: 255 198 0;
+  --negative: 230 0 0;
+
+  /* Radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}
+
+/* =========================
+   DARK MODE
+========================= */
+
+.dark {
+  --bg: 20 21 22;               /* neutrals.975 */
+  --bg-muted: 54 57 60;
+
+  --fg: 229 233 235;
+  --fg-muted: 176 181 185;
+
+  --primary: 200 16 46;
+  --primary-hover: 236 90 117;
+
+  --border: 60 60 60;
+}

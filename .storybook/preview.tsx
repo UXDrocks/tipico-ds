@@ -1,12 +1,55 @@
-import type { Preview } from "@storybook/react";
+import '../src/styles/tokens.primitives.css';
+import '../src/styles/tokens.light.css';
+import '../src/styles/tokens.dark.css';
+import '../src/styles/theme.css';
 
-import "../src/index.css";
-import "../src/theme.css";
+import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
   parameters: {
-    layout: "fullscreen",
+    layout: 'centered',
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
   },
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals.theme;
+      return (
+        <div
+          className={theme === 'dark' ? 'dark' : undefined}
+          style={{
+            minHeight: '100vh',
+            background: 'rgb(var(--bg))',
+            color: 'rgb(var(--fg))',
+            padding: 24,
+            boxSizing: 'border-box',
+          }}
+        >
+          <Story />
+        </div>
+      );
+    },
+  ],
 };
 
 export default preview;

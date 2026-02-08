@@ -1,0 +1,33 @@
+:root {
+  /* ===== COLORS: PRIMARY ===== */
+  --color-primary-50: 253 230 234;
+  --color-primary-100: 251 205 213;
+  --color-primary-200: 246 156 170;
+  --color-primary-300: 236 90 117;
+  --color-primary-400: 229 47 85;
+  --color-primary-500: 200 16 46;
+  --color-primary-600: 175 0 30;
+  --color-primary-700: 132 0 23;
+  --color-primary-800: 99 0 18;
+  --color-primary-900: 66 0 12;
+
+  /* ===== NEUTRALS ===== */
+  --color-neutral-25: 249 249 251;
+  --color-neutral-50: 238 240 241;
+  --color-neutral-100: 229 233 235;
+  --color-neutral-700: 77 82 86;
+  --color-neutral-900: 30 33 34;
+
+  /* ===== SPACING ===== */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+
+  /* ===== RADIUS ===== */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+}

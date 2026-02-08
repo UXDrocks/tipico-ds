@@ -1,0 +1,18 @@
+:root {
+  /* Backgrounds */
+  --bg-base: rgb(var(--color-neutral-50));
+  --bg-base-2: rgb(255 255 255);
+  --bg-primary: rgb(var(--color-primary-500));
+  --bg-primary-hover: rgb(var(--color-primary-700));
+
+  /* Text */
+  --text-default: rgb(var(--color-neutral-700));
+  --text-strong: rgb(var(--color-neutral-900));
+  --text-inverse: rgb(255 255 255);
+
+  /* Borders */
+  --border-default: rgb(0 0 0 / 0.15);
+
+  /* Brand */
+  --brand-primary: rgb(var(--color-primary-500));
+}
