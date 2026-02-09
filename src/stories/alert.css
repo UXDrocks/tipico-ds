@@ -29,15 +29,15 @@
 
 .tipico-alert__title {
   margin: 0 0 var(--space-1, 0.25rem);
-  font-size: 1rem;
+  font-size: var(--text-base);
   font-weight: 700;
-  line-height: 1.25;
+  line-height: var(--text-base--line-height);
   color: rgb(var(--fg));
 }
 
 .tipico-alert__body {
-  font-size: 0.875rem;
-  line-height: 1.4;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   color: rgb(var(--fg-muted));
 }
 
@@ -47,7 +47,8 @@
 
 .tipico-alert__link-wrap {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
 }
 
 .tipico-alert__close {
@@ -131,11 +132,11 @@
   }
 
   .tipico-alert__title {
-    font-size: 0.9375rem;
+    font-size: var(--text-base);
   }
 
   .tipico-alert__body {
-    font-size: 0.8125rem;
+    font-size: var(--text-sm);
   }
 
   .tipico-alert__icon {

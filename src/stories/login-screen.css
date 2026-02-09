@@ -65,7 +65,8 @@
 
 .tipico-login-screen__submit-error {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   color: rgb(var(--negative));
 }
 
@@ -75,7 +76,8 @@
 
 .tipico-login-screen__signup {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
   color: rgb(var(--fg-muted));
   text-align: center;
 }
