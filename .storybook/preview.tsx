@@ -70,7 +70,8 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals?.theme ?? 'light';
-      // We keep viewportWidth for future use, but the preview always stretches full width now.
+      const layout = context.parameters?.layout ?? 'fullscreen';
+      const isCentered = layout === 'centered';
 
       return (
         <div
@@ -85,12 +86,23 @@ const preview: Preview = {
         >
           <div
             style={{
-              width: '100%',
-              maxWidth: '100%',
               minHeight: '100vh',
+              boxSizing: 'border-box',
+              display: isCentered ? 'flex' : 'block',
+              alignItems: isCentered ? 'flex-start' : undefined,
+              justifyContent: isCentered ? 'center' : undefined,
+              padding: isCentered ? 'var(--space-8)' : 0,
             }}
           >
-            <Story />
+            <div
+              style={{
+                width: '100%',
+                maxWidth: isCentered ? '48rem' : '100%',
+                minHeight: '100vh',
+              }}
+            >
+              <Story />
+            </div>
           </div>
         </div>
       );
