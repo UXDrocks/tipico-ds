@@ -8,6 +8,8 @@
   padding: 0;
   background-color: rgb(0 0 0 / 0.45);
   backdrop-filter: blur(10px);
+  opacity: 0;
+  animation: tipico-dialog-backdrop-in 160ms ease-out forwards;
 }
 
 .tipico-dialog {
@@ -24,6 +26,9 @@
   box-sizing: border-box;
   text-align: center;
   font-family: var(--font-sans);
+  transform: translateY(100%);
+  opacity: 0;
+  animation: tipico-dialog-in-mobile 220ms cubic-bezier(0.32, 0.72, 0, 1) forwards;
 }
 
 .tipico-dialog__icon {
@@ -91,7 +96,42 @@
     max-width: 22rem;
     border-radius: var(--radius-card);
     padding: var(--space-6, 1.5rem) var(--space-5, 1.25rem) var(--space-5, 1.25rem);
+    transform: translateY(2rem);
+    opacity: 0;
+    animation: tipico-dialog-in-desktop 220ms cubic-bezier(0.32, 0.72, 0, 1) forwards;
   }
 }
+
+@keyframes tipico-dialog-backdrop-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes tipico-dialog-in-mobile {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes tipico-dialog-in-desktop {
+  from {
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 
