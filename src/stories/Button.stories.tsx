@@ -1,10 +1,18 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Button } from './Button';
 
-const ChevronRight = () => (
-  <svg viewBox="0 0 20 20" fill="currentColor" width="20" height="20">
-    <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.168 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.06l-4.5 4.25a.75.75 0 0 1-1.06-.02Z" clipRule="evenodd" />
-  </svg>
+/** Temporary icon placeholder so stories do not depend on a real icon set. */
+const IconPlaceholder = () => (
+  <span
+    aria-hidden
+    style={{
+      display: 'inline-block',
+      width: 16,
+      height: 16,
+      borderRadius: 999,
+      background: 'rgb(var(--signals-bg-info))',
+    }}
+  />
 );
 
 const meta = {
@@ -89,13 +97,31 @@ export const Loading: Story = {
   args: { loading: true, loadingLabel: 'Saving…', children: 'Save' },
 };
 
-export const WithIcon: Story = {
-  render: () => (
+type WithIconArgs = {
+  showLeftIcon: boolean;
+  showRightIcon: boolean;
+};
+
+export const WithIcon: Story<WithIconArgs> = {
+  args: {
+    showLeftIcon: true,
+    showRightIcon: true,
+  },
+  argTypes: {
+    showLeftIcon: { control: 'boolean' },
+    showRightIcon: { control: 'boolean' },
+  },
+  render: ({ showLeftIcon, showRightIcon }) => (
     <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-      <Button variant="primary" iconRight={<ChevronRight />}>
+      <Button variant="primary" iconRight={showRightIcon ? <IconPlaceholder /> : undefined}>
         Next
       </Button>
-      <Button variant="tertiary" iconLeft={<span style={{ transform: 'scaleX(-1)', display: 'inline-block' }}><ChevronRight /></span>}>
+      <Button
+        variant="tertiary"
+        iconLeft={
+          showLeftIcon ? <IconPlaceholder /> : undefined
+        }
+      >
         Back
       </Button>
     </div>

@@ -1,0 +1,105 @@
+/* Label – small semantic status/metadata tag using semantic tokens. */
+
+.tipico-label {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(var(--space-0-5)) var(--space-3);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-xs);
+  line-height: var(--leading-xs);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-labels);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.tipico-label__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tipico-label__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit; /* icons follow label text color */
+}
+
+.tipico-label__icon--left {
+  margin-right: var(--space-1);
+}
+
+.tipico-label__icon--right {
+  margin-left: var(--space-1);
+}
+
+.tipico-label--inactive {
+  opacity: 0.95;
+}
+
+/* Neutral */
+.tipico-label--neutral.tipico-label--active {
+  background-color: rgb(var(--signals-bg-neutral));
+  color: rgb(var(--text-white));
+  border-color: transparent;
+}
+
+.tipico-label--neutral.tipico-label--inactive {
+  background-color: rgb(var(--signals-bg-neutral-subtile));
+  color: rgb(var(--text-standard));
+  border-color: rgb(var(--border-standard));
+}
+
+/* Positive */
+.tipico-label--positive.tipico-label--active {
+  background-color: rgb(var(--signals-bg-positive));
+  color: rgb(var(--signals-text-cta-positive));
+  border-color: transparent;
+}
+
+.tipico-label--positive.tipico-label--inactive {
+  background-color: rgb(var(--signals-bg-positive-subtile));
+  color: rgb(var(--signals-text-positive));
+  border-color: rgb(var(--signals-bg-positive));
+}
+
+/* Info */
+.tipico-label--info.tipico-label--active {
+  background-color: rgb(var(--signals-bg-info));
+  color: rgb(var(--signals-text-cta-info));
+  border-color: transparent;
+}
+
+.tipico-label--info.tipico-label--inactive {
+  background-color: rgb(var(--signals-bg-info-subtile));
+  color: rgb(var(--signals-text-info));
+  border-color: rgb(var(--signals-bg-info));
+}
+
+/* Negative */
+.tipico-label--negative.tipico-label--active {
+  background-color: rgb(var(--signals-bg-negative));
+  color: rgb(var(--signals-text-cta-negative));
+  border-color: transparent;
+}
+
+.tipico-label--negative.tipico-label--inactive {
+  background-color: rgb(var(--signals-bg-negative-subtile));
+  color: rgb(var(--signals-text-negative));
+  border-color: rgb(var(--signals-bg-negative));
+}
+
+/* Warning */
+.tipico-label--warning.tipico-label--active {
+  background-color: rgb(var(--signals-bg-warning));
+  color: rgb(var(--signals-text-cta-warning));
+  border-color: transparent;
+}
+
+.tipico-label--warning.tipico-label--inactive {
+  background-color: rgb(var(--signals-bg-warning-subtile));
+  color: rgb(var(--signals-text-warning));
+  border-color: rgb(var(--signals-bg-warning));
+}
+

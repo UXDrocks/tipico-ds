@@ -32,12 +32,12 @@
   --input-border: 202 206 208;  /* neutrals.200 */
   --input-fg: 77 82 86;         /* neutrals.700 */
   --input-placeholder: 123 132 138; /* neutrals.500 */
-  --input-focus-border: 200 16 46;   /* primary.500 */
+  --input-focus-border: 28 126 161;  /* interaction / same as --link */
   --input-error-border: 230 0 0;     /* negative */
 
   /* Link */
-  --link: 200 16 46;            /* primary.500 */
-  --link-hover: 132 0 23;       /* primary.700 */
+  --link: 28 126 161;           /* interaction / signals-info-500 */
+  --link-hover: 38 170 217;     /* interaction hover / signals-info-400 */
 
   /* Status */
   --success: 41 169 91;
@@ -115,11 +115,12 @@
   --input-border: 60 60 60;
   --input-fg: 229 233 235;
   --input-placeholder: 176 181 185;
-  --input-focus-border: 236 90 117;
+  --input-focus-border: 95 192 227;  /* interaction (dark) / similar to --link */
   --input-error-border: 244 100 100;
 
-  --link: 236 90 117;
-  --link-hover: 246 156 170;
+  /* Link (dark: brighter interaction) */
+  --link: 95 192 227;           /* signals-info-300 */
+  --link-hover: 151 214 237;    /* signals-info-200 */
 
   /* Alert dark */
   --alert-neutral-bg: 54 57 60;

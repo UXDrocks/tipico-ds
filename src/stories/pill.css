@@ -1,0 +1,104 @@
+/* Pill – compact status/tag badge built from DS tokens. */
+
+.tipico-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  font-weight: var(--font-medium);
+  border-radius: var(--radius-pills);
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.tipico-pill__text {
+  display: inline-flex;
+  align-items: center;
+}
+
+.tipico-pill__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit; /* icons follow pill text color */
+}
+
+.tipico-pill__icon--left {
+  margin-right: var(--space-2);
+}
+
+.tipico-pill__icon--right {
+  margin-left: var(--space-2);
+}
+
+.tipico-pill--active {
+  box-shadow: 0 0 0 1px rgb(var(--base-alpha-black-10));
+}
+
+.tipico-pill--inactive {
+  box-shadow: none;
+}
+
+/* Neutral */
+.tipico-pill--neutral.tipico-pill--active {
+  background-color: rgb(var(--base-neutrals-800));
+  color: rgb(var(--base-white));
+}
+
+.tipico-pill--neutral.tipico-pill--inactive {
+  background-color: rgb(var(--base-neutrals-25));
+  color: rgb(var(--base-neutrals-900));
+  border-color: rgb(var(--base-neutrals-200));
+}
+
+/* Positive */
+.tipico-pill--positive.tipico-pill--active {
+  background-color: rgb(var(--signals-positive-500));
+  color: rgb(var(--base-white));
+}
+
+.tipico-pill--positive.tipico-pill--inactive {
+  background-color: rgb(var(--signals-positive-50));
+  color: rgb(var(--signals-positive-600));
+  border-color: rgb(var(--signals-positive-100));
+}
+
+/* Info */
+.tipico-pill--info.tipico-pill--active {
+  background-color: rgb(var(--signals-info-500));
+  color: rgb(var(--base-white));
+}
+
+.tipico-pill--info.tipico-pill--inactive {
+  background-color: rgb(var(--signals-info-50));
+  color: rgb(var(--signals-info-600));
+  border-color: rgb(var(--signals-info-100));
+}
+
+/* Negative */
+.tipico-pill--negative.tipico-pill--active {
+  background-color: rgb(var(--signals-negative-500));
+  color: rgb(var(--base-white));
+}
+
+.tipico-pill--negative.tipico-pill--inactive {
+  background-color: rgb(var(--signals-negative-50));
+  color: rgb(var(--signals-negative-600));
+  border-color: rgb(var(--signals-negative-100));
+}
+
+/* Warning */
+.tipico-pill--warning.tipico-pill--active {
+  background-color: rgb(var(--signals-warning-500));
+  color: rgb(var(--base-black));
+}
+
+.tipico-pill--warning.tipico-pill--inactive {
+  background-color: rgb(var(--signals-warning-50));
+  color: rgb(var(--signals-warning-700));
+  border-color: rgb(var(--signals-warning-100));
+}
+

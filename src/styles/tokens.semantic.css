@@ -1,0 +1,205 @@
+:root {
+  /* text colors - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-74333 */
+
+  --text-highlight: var(--base-neutrals-950);
+  --text-standard: var(--base-neutrals-700);
+  --text-subtile: var(--base-neutrals-500);
+  --text-black: var(--base-black);
+  --text-white: var(--base-white);
+  --text-white-subtile: var(--base-alpha-white-75);
+  --text-black-inverse: var(--text-black);
+  --text-white-inverse: var(--text-white);
+  --text-interaction: var(--global-styling-signals-info);
+  --text-interaction-lighter-stay: var(--global-styling-signals-info-brighter);
+  --text-interaction-default: var(--base-neutrals-25);
+  --text-interaction-active: var(--base-neutrals-800);
+
+  /* border colors - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-74527 */
+
+  --border-strong: var(--base-alpha-black-75);
+  --border-highlight: var(--base-alpha-black-25);
+  --border-standard: var(--base-alpha-black-15);
+  --border-subtile: var(--base-alpha-black-5);
+  --border-white-strong-inverse: var(--base-alpha-white-75);
+  --border-black-strong-inverse: var(--base-alpha-black-75);
+  --border-white-subtile-inverse: var(--base-alpha-white-15);
+  --border-black-subtile-inverse: var(--base-alpha-black-15);
+  --border-interaction: var(--global-styling-branding-interaction);
+  --border-black: var(--base-black);
+  --border-white: var(--base-white);
+  --border-black-inverse: var(--base-black);
+  --border-white-inverse: var(--base-white);
+
+  /* background colors - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-74807 */
+
+  --bg-input: var(--base-neutrals-25);
+  --bg-inlay: var(--base-neutrals-25);
+  --bg-card: var(--base-white);
+  --bg-card-feature: var(--colors-haze-300);
+  --bg-surface: var(--base-neutrals-50);
+  --bg-modal: var(--base-white);
+  --bg-modal-0: var(--base-transparent);
+  --bg-overlay: var(--base-neutrals-50);
+  --bg-tabbar: var(--base-neutrals-50);
+  --bg-list-default: var(--base-transparent);
+  --bg-list-hover: var(--base-alpha-black-5);
+  --bg-list-active: var(--base-alpha-black-10);
+  --bg-dropdown: var(--colors-haze-200);
+  --bg-interaction-default: var(--base-neutrals-25);
+  --bg-interaction-active: var(--base-neutrals-800);
+  --bg-odds-default: var(--colors-haze-300);
+  --bg-odds-selected: var(--base-neutrals-700);
+  --bg-odds-default-locked: var(--colors-haze-50);
+  --bg-odds-selected-locked: var(--base-neutrals-300);
+  --bg-navigation-brand: var(--global-styling-branding-brand);
+  --bg-navigation-default: var(--base-neutrals-50);
+  --bg-nav-transparent: var(--base-transparent);
+  --bg-bottomnav-gradient-start: var(--base-white);
+  --bg-bottomnav-gradient-end: var(--base-alpha-white-75);
+  --bg-brand-gradient-start: var(--colors-red-500);
+  --bg-brand-gradient-mid-1: var(--colors-red-800);
+  --bg-brand-gradient-mid-2: var(--colors-red-975);
+  --bg-brand-gradient-end: var(--colors-red-950);
+  --bg-promobanner: var(--base-alpha-white-95);
+  --bg-inline-message: var(--base-neutrals-50);
+  --bg-tipclub-widget: var(--base-white);
+  --bg-white-inverse: var(--base-white);
+  --bg-white: var(--base-white);
+  --bg-black-inverse: var(--base-black);
+  --bg-black: var(--base-black);
+  --bg-cta-ghost: var(--base-alpha-black-15);
+  --bg-cta-primary: var(--global-styling-branding-primary);
+  --bg-cta-primary-hover: var(--global-styling-branding-primary-hover);
+  --bg-cta-secondary: var(--global-styling-branding-secondary);
+  --bg-cta-secondary-hover: var(--global-styling-branding-secondary-hover);
+  --bg-cta-tertiary: var(--global-styling-branding-tertiary);
+  --bg-cta-tertiary-hover: var(--global-styling-branding-tertiary-hover);
+  --bg-border-standard: var(--base-alpha-black-15);
+  --bg-border-subtile: var(--base-alpha-black-5);
+  --bg-border-highlight: var(--base-alpha-black-25);
+  --bg-border-strong: var(--base-alpha-black-75);
+  --bg-shading-overlay: var(--base-white);
+
+  /* background/branding - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-75597 */
+
+  --branding-bg-brand: var(--global-styling-branding-brand);
+  --branding-bg-brand-hover: var(--global-styling-branding-brand-hover);
+  --branding-bg-primary: var(--global-styling-branding-primary);
+  --branding-bg-primary-hover: var(--global-styling-branding-primary-hover);
+  --branding-bg-secondary: var(--global-styling-branding-secondary);
+  --branding-bg-secondary-hover: var(--global-styling-branding-secondary-hover);
+  --branding-bg-tertiary: var(--global-styling-branding-tertiary);
+  --branding-bg-tertiary-hover: var(--global-styling-branding-tertiary-hover);
+
+  /* background/signals - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-75784 */
+
+  --signals-bg-info: var(--global-styling-signals-info);
+  --signals-bg-info-hover: var(--signals-info-600);
+  --signals-bg-info-subtile: var(--signals-info-50);
+  --signals-bg-positive: var(--global-styling-signals-positive);
+  --signals-bg-positive-hover: var(--signals-positive-700);
+  --signals-bg-positive-subtile: var(--signals-positive-50);
+  --signals-bg-negative: var(--global-styling-signals-negative);
+  --signals-bg-negative-hover: var(--signals-negative-800);
+  --signals-bg-negative-subtile: var(--signals-negative-50);
+  --signals-bg-warning: var(--global-styling-signals-warning);
+  --signals-bg-warning-hover: var(--signals-warning-600);
+  --signals-bg-warning-subtile: var(--signals-warning-50);
+  --signals-bg-neutral: var(--global-styling-signals-neutral);
+  --signals-bg-neutral-hover: var(--base-neutrals-400);
+  --signals-bg-neutral-subtile: var(--base-neutrals-50);
+  --signals-bg-plain: var(--base-white);
+
+  /* global-styling/branding - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-76102 */
+
+  --global-styling-branding-brand: var(--colors-red-500);
+  --global-styling-branding-brand-adjusted: var(--colors-red-500);
+  --global-styling-branding-brand-adjusted-inverse: var(--base-white);
+  --global-styling-branding-brand-hover: var(--colors-red-400);
+  --global-styling-branding-primary: var(--base-neutrals-900);
+  --global-styling-branding-primary-hover: var(--base-neutrals-700);
+  --global-styling-branding-secondary: var(--colors-haze-300);
+  --global-styling-branding-secondary-hover: var(--colors-haze-200);
+  --global-styling-branding-tertiary: var(--signals-info-500);
+  --global-styling-branding-tertiary-hover: var(--signals-info-400);
+  --global-styling-branding-interaction: var(--signals-info-500);
+  --global-styling-branding-interaction-hover: var(--signals-info-400);
+  --global-styling-branding-interaction-extra: var(--signals-info-300);
+  --global-styling-branding-interaction-extra-hover: var(--signals-info-200);
+
+  /* global-styling/signals - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-76411 */
+
+  --global-styling-signals-info: var(--signals-info-500);
+  --global-styling-signals-info-brighter: var(--signals-info-300);
+  --global-styling-signals-positive: var(--signals-positive-600);
+  --global-styling-signals-positive-brighter: var(--signals-positive-400);
+  --global-styling-signals-negative: var(--signals-negative-700);
+  --global-styling-signals-negative-brighter: var(--signals-negative-400);
+  --global-styling-signals-warning: var(--signals-warning-500);
+  --global-styling-signals-neutral: var(--base-neutrals-500);
+
+  /* border/branding - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-77284 */
+
+  --branding-border-brand: var(--global-styling-branding-brand);
+  --branding-border-primary: var(--global-styling-branding-primary);
+  --branding-border-secondary: var(--global-styling-branding-secondary);
+  --branding-border-tertiary: var(--global-styling-branding-tertiary);
+
+  /* border/signals - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-77379 */
+
+  --signals-border-info: var(--global-styling-signals-info);
+  --signals-border-negative: var(--global-styling-signals-negative);
+  --signals-border-warning: var(--global-styling-signals-warning);
+  --signals-border-positive: var(--global-styling-signals-positive);
+
+  /* text/branding colors - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-77466 */
+
+  --branding-text-brand: var(--global-styling-branding-brand);
+  --branding-text-primary: var(--global-styling-branding-primary);
+  --branding-text-secondary: var(--global-styling-branding-secondary);
+  --branding-text-tertiary: var(--global-styling-branding-tertiary);
+  --branding-text-cta-primary: var(--text-white);
+  --branding-text-cta-secondary: var(--text-black);
+  --branding-text-cta-tertiary: var(--text-black);
+  --branding-text-cta-brand: var(--text-white);
+
+  /* text/signals colors - https://www.figma.com/design/FazkRi1zigs8vJlcPzn8Xx/Tipico-%E2%9A%99%EF%B8%8F-Tailwind%E2%80%A8---Design-System?node-id=9166-77647 */
+
+  --signals-text-info: var(--global-styling-signals-info);
+  --signals-text-info-brighter: var(--global-styling-signals-info-brighter);
+  --signals-text-positive: var(--global-styling-signals-positive);
+  --signals-text-positive-brighter: var(--global-styling-signals-positive-brighter);
+  --signals-text-warning: var(--signals-warning-600);
+  --signals-text-negative: var(--global-styling-signals-negative);
+  --signals-text-cta-info: var(--text-white);
+  --signals-text-cta-positive: var(--text-white);
+  --signals-text-cta-negative: var(--text-white);
+  --signals-text-cta-warning: var(--text-white);
+  --signals-text-odds-negative: var(--signals-negative-300);
+  --signals-text-negative-brighter: var(--global-styling-signals-negative);
+
+  /* border-opacity  DEPRECATED - kept for compatibility, encoded in colors above */
+
+  --border-opacity-0: 0;
+  --border-opacity-subtile: 0.05;
+  --border-opacity-15: 0.15;
+  --border-opacity-25: 0.25;
+  --border-opacity-standard: 0.4;
+  --border-opacity-50: 0.5;
+  --border-opacity-highlight: 0.6;
+  --border-opacity-70: 0.7;
+  --border-opacity-75: 0.75;
+  --border-opacity-95: 0.95;
+
+  /* input settings */
+
+  --input-date-icon-filter: invert(0);
+  --bg-brand-gradient-vertical: linear-gradient(
+    180deg,
+    rgb(var(--colors-red-500)) 0px,
+    rgb(var(--colors-red-800)) 78px,
+    rgb(var(--colors-red-975)) 146px,
+    rgb(var(--colors-red-950)) 214px
+  );
+}
+
