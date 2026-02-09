@@ -1,0 +1,28 @@
+.tipico-card {
+  width: 100%;
+  box-sizing: border-box;
+  padding: var(--space-5, 1.25rem);
+  border-radius: var(--radius-card);
+  background: rgb(var(--bg-card));
+  color: rgb(var(--fg));
+}
+
+.tipico-card--plain {
+  /* Just the default bg-card surface */
+  box-shadow: none;
+  border: 1px solid transparent;
+}
+
+.tipico-card--shadow {
+  /* Subtle elevation using base alpha tokens */
+  border: 1px solid rgb(var(--border-subtile));
+  box-shadow:
+    0 1px 2px rgb(var(--base-alpha-black-15)),
+    0 4px 8px rgb(var(--base-alpha-black-10));
+}
+
+.tipico-card--bordered {
+  border: 1px solid rgb(var(--border-standard));
+  box-shadow: none;
+}
+

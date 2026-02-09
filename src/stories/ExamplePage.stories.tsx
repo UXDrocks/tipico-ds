@@ -10,6 +10,12 @@ import { TextField } from './TextField';
 import { Link } from './Link';
 import { TabBar } from './TabBar';
 import { ToastProvider, useToast } from './ToastProvider';
+import { Card } from './Card';
+import { Article } from './Article';
+import { InputField } from './InputField';
+import { Pill } from './Pill';
+import { Label } from './Label';
+import { Header } from './Header';
 
 const meta: Meta = {
   title: 'Screens/Example Page',
@@ -50,55 +56,8 @@ function ExamplePageContent() {
         fontFamily: 'var(--font-sans)',
       }}
     >
-      {/* Header: logo + TabBar; TabBar scrolls horizontally on narrow viewports to avoid overlap */}
-      <header
-        style={{
-          padding: 'var(--space-4) var(--space-4) var(--space-4) var(--space-6)',
-          borderBottom: '1px solid rgb(var(--border))',
-          background: 'rgb(var(--bg-muted))',
-        }}
-      >
-        <div
-          style={{
-            maxWidth: '64rem',
-            margin: '0 auto',
-            display: 'flex',
-            flexWrap: 'wrap',
-            alignItems: 'center',
-            justifyContent: 'space-between',
-            gap: 'var(--space-4)',
-          }}
-        >
-          <span
-            style={{
-              fontSize: 'var(--font-size-xl)',
-              fontWeight: 'var(--font-bold)',
-              letterSpacing: '-0.02em',
-              color: 'rgb(var(--fg))',
-              flexShrink: 0,
-            }}
-          >
-            Tipico
-          </span>
-          <div
-            style={{
-              flex: '1 1 0',
-              minWidth: 0,
-              maxWidth: '100%',
-              overflowX: 'auto',
-              WebkitOverflowScrolling: 'touch',
-              paddingBottom: 'var(--space-1)',
-            }}
-          >
-            <TabBar
-              tabs={appTabs}
-              activeId={activeTab}
-              onSelect={setActiveTab}
-              aria-label="Main navigation"
-            />
-          </div>
-        </div>
-      </header>
+      {/* Page header using shared Header component */}
+      <Header title="Example page" />
 
       {/* Main: constrained width + min padding to avoid overlap and improve readability */}
       <main
@@ -132,6 +91,38 @@ function ExamplePageContent() {
         >
           This layout uses Alert, TextField, Button, Link, and TabBar from the design system.
         </p>
+
+        {/* Top navigation: TabBar preview */}
+        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="tabs-heading">
+          <h2
+            id="tabs-heading"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              lineHeight: 'var(--leading-lg)',
+              fontWeight: 'var(--font-semibold)',
+              marginTop: 0,
+              marginBottom: 'var(--space-4)',
+              color: 'rgb(var(--fg))',
+            }}
+          >
+            Main navigation
+          </h2>
+          <div
+            style={{
+              maxWidth: '100%',
+              overflowX: 'auto',
+              WebkitOverflowScrolling: 'touch',
+              paddingBottom: 'var(--space-1)',
+            }}
+          >
+            <TabBar
+              tabs={appTabs}
+              activeId={activeTab}
+              onSelect={setActiveTab}
+              aria-label="Main navigation"
+            />
+          </div>
+        </section>
 
         {/* Alert */}
         {alertOpen && (
@@ -227,6 +218,98 @@ function ExamplePageContent() {
             <Alert variant="error" title="Error" showIcon>
               Something went wrong. Please try again.
             </Alert>
+          </div>
+        </section>
+
+        {/* Form card: Article + InputField + Button */}
+        <section
+          style={{ marginBottom: 'var(--space-6)' }}
+          aria-labelledby="limits-heading"
+        >
+          <Card variant="bordered">
+            <Article
+              title="Sports limits (optional)"
+              description="Configure optional deposit limits for your sports account."
+            >
+              <div
+                style={{
+                  display: 'flex',
+                  flexDirection: 'column',
+                  gap: 'var(--space-3)',
+                  marginBottom: 'var(--space-4)',
+                }}
+              >
+                <InputField label="Monthly" placeholder="No limit" />
+                <InputField label="Weekly" placeholder="No limit" />
+              </div>
+              <Button variant="primary" fullWidth>
+                Save limits
+              </Button>
+            </Article>
+          </Card>
+        </section>
+
+        {/* Status tags: Pill + Label */}
+        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="tags-heading">
+          <h2
+            id="tags-heading"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              lineHeight: 'var(--leading-lg)',
+              fontWeight: 'var(--font-semibold)',
+              marginTop: 0,
+              marginBottom: 'var(--space-4)',
+              color: 'rgb(var(--fg))',
+            }}
+          >
+            Status tags
+          </h2>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 'var(--space-3)',
+              marginBottom: 'var(--space-3)',
+            }}
+          >
+            <Pill variant="neutral" active>
+              Neutral
+            </Pill>
+            <Pill variant="positive" active>
+              Positive
+            </Pill>
+            <Pill variant="info" active>
+              Info
+            </Pill>
+            <Pill variant="negative" active>
+              Negative
+            </Pill>
+            <Pill variant="warning" active>
+              Warning
+            </Pill>
+          </div>
+          <div
+            style={{
+              display: 'flex',
+              flexWrap: 'wrap',
+              gap: 'var(--space-3)',
+            }}
+          >
+            <Label variant="neutral" active>
+              Neutral
+            </Label>
+            <Label variant="positive" active>
+              Positive
+            </Label>
+            <Label variant="info" active>
+              Info
+            </Label>
+            <Label variant="negative" active>
+              Negative
+            </Label>
+            <Label variant="warning" active>
+              Warning
+            </Label>
           </div>
         </section>
 
