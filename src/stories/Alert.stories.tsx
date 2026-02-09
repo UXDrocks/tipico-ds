@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Alert } from './Alert';
+import { ICON_OPTIONS, type IconOption, iconFromOption } from './icons';
 
 const meta = {
   title: 'Components/Alert',
@@ -166,6 +167,57 @@ export const WithIconCloseAndLink: Story = {
     showIcon: true,
     onClose: () => {},
     link: { href: '#extend', label: 'Extend session' },
+  },
+};
+
+type WithIconArgs = {
+  variant: 'neutral' | 'info' | 'error' | 'success' | 'warning';
+  title: string;
+  children: string;
+  showIcon: boolean;
+  icon: IconOption;
+};
+
+/** Playground with icon and showIcon controls – same icon set as other components. */
+export const WithIcon: Story<WithIconArgs> = {
+  args: {
+    variant: 'info',
+    title: 'Headline',
+    children: defaultBody,
+    showIcon: true,
+    icon: 'AlertCircle',
+  },
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['neutral', 'info', 'error', 'success', 'warning'],
+    },
+    showIcon: {
+      control: 'boolean',
+      description: 'Show or hide the status icon',
+    },
+    icon: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon (overrides variant default)',
+    },
+  },
+  render: (args) => {
+    const { icon, ...rest } = args;
+    const iconNode = iconFromOption(icon, 20);
+
+    return (
+      <div
+        style={{
+          maxWidth: 480,
+        }}
+      >
+        <Alert
+          {...(rest as any)}
+          icon={iconNode}
+        />
+      </div>
+    );
   },
 };
 
