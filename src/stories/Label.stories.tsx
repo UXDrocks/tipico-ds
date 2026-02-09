@@ -26,6 +26,16 @@ const meta = {
         component: `
 Small semantic label component for statuses / metadata.
 
+### Variant overview
+
+| Variant  | Description                      |
+|---------|----------------------------------|
+| neutral | Default / generic label          |
+| positive| Success / positive state         |
+| info    | Informational status             |
+| negative| Error / problematic state        |
+| warning | Caution / needs user attention   |
+
 Variants are aligned with the design-system signal tokens and neutrals:
 - neutral → signals-bg-neutral / text-standard
 - positive → signals-*positive*
@@ -52,50 +62,7 @@ Variants are aligned with the design-system signal tokens and neutrals:
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  args: {
-    variant: 'neutral',
-    active: true,
-    children: 'Label',
-  },
-};
-
-type WithIconArgs = {
-  showLeftIcon: boolean;
-  showRightIcon: boolean;
-};
-
-export const WithIcon: Story<WithIconArgs> = {
-  args: {
-    showLeftIcon: true,
-    showRightIcon: true,
-  },
-  argTypes: {
-    showLeftIcon: { control: 'boolean' },
-    showRightIcon: { control: 'boolean' },
-  },
-  render: ({ showLeftIcon, showRightIcon }) => (
-    <div
-      style={{
-        display: 'flex',
-        gap: 'var(--space-3)',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Label
-        variant="info"
-        active
-        iconLeft={showLeftIcon ? <IconPlaceholder /> : undefined}
-        iconRight={showRightIcon ? <IconPlaceholder /> : undefined}
-      >
-        Label with icons
-      </Label>
-    </div>
-  ),
-};
-
-export const AllVariants: Story = {
+export const Overview: Story = {
   render: () => (
     <div
       style={{
@@ -152,6 +119,49 @@ export const AllVariants: Story = {
           Inactive
         </Label>
       </div>
+    </div>
+  ),
+};
+
+export const Playground: Story = {
+  args: {
+    variant: 'neutral',
+    active: true,
+    children: 'Label',
+  },
+};
+
+type WithIconArgs = {
+  showLeftIcon: boolean;
+  showRightIcon: boolean;
+};
+
+export const WithIcon: Story<WithIconArgs> = {
+  args: {
+    showLeftIcon: true,
+    showRightIcon: true,
+  },
+  argTypes: {
+    showLeftIcon: { control: 'boolean' },
+    showRightIcon: { control: 'boolean' },
+  },
+  render: ({ showLeftIcon, showRightIcon }) => (
+    <div
+      style={{
+        display: 'flex',
+        gap: 'var(--space-3)',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Label
+        variant="info"
+        active
+        iconLeft={showLeftIcon ? <IconPlaceholder /> : undefined}
+        iconRight={showRightIcon ? <IconPlaceholder /> : undefined}
+      >
+        Label with icons
+      </Label>
     </div>
   ),
 };

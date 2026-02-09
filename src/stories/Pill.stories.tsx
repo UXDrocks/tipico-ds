@@ -26,6 +26,16 @@ const meta = {
         component: `
 Compact pill component for statuses / tags.
 
+### Variant overview
+
+| Variant  | Description                      |
+|---------|----------------------------------|
+| neutral | Default / generic pill           |
+| positive| Success / positive state         |
+| info    | Informational status             |
+| negative| Error / problematic state        |
+| warning | Caution / needs user attention   |
+
 Variants map to the design-system signal scales:
 - neutral → base neutrals
 - positive → signals-positive
@@ -52,50 +62,7 @@ Variants map to the design-system signal scales:
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const Playground: Story = {
-  args: {
-    variant: 'neutral',
-    active: true,
-    children: 'Pill',
-  },
-};
-
-type WithIconArgs = {
-  showLeftIcon: boolean;
-  showRightIcon: boolean;
-};
-
-export const WithIcon: Story<WithIconArgs> = {
-  args: {
-    showLeftIcon: true,
-    showRightIcon: true,
-  },
-  argTypes: {
-    showLeftIcon: { control: 'boolean' },
-    showRightIcon: { control: 'boolean' },
-  },
-  render: ({ showLeftIcon, showRightIcon }) => (
-    <div
-      style={{
-        display: 'flex',
-        gap: 'var(--space-4)',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Pill
-        variant="info"
-        active
-        iconLeft={showLeftIcon ? <IconPlaceholder /> : undefined}
-        iconRight={showRightIcon ? <IconPlaceholder /> : undefined}
-      >
-        Pill with icons
-      </Pill>
-    </div>
-  ),
-};
-
-export const AllVariants: Story = {
+export const Overview: Story = {
   render: () => (
     <div
       style={{
@@ -152,6 +119,49 @@ export const AllVariants: Story = {
           Inactive Pill
         </Pill>
       </div>
+    </div>
+  ),
+};
+
+export const Playground: Story = {
+  args: {
+    variant: 'neutral',
+    active: true,
+    children: 'Pill',
+  },
+};
+
+type WithIconArgs = {
+  showLeftIcon: boolean;
+  showRightIcon: boolean;
+};
+
+export const WithIcon: Story<WithIconArgs> = {
+  args: {
+    showLeftIcon: true,
+    showRightIcon: true,
+  },
+  argTypes: {
+    showLeftIcon: { control: 'boolean' },
+    showRightIcon: { control: 'boolean' },
+  },
+  render: ({ showLeftIcon, showRightIcon }) => (
+    <div
+      style={{
+        display: 'flex',
+        gap: 'var(--space-4)',
+        alignItems: 'center',
+        flexWrap: 'wrap',
+      }}
+    >
+      <Pill
+        variant="info"
+        active
+        iconLeft={showLeftIcon ? <IconPlaceholder /> : undefined}
+        iconRight={showRightIcon ? <IconPlaceholder /> : undefined}
+      >
+        Pill with icons
+      </Pill>
     </div>
   ),
 };

@@ -29,6 +29,12 @@ const meta = {
         component: `
 Promotional bonus label (e.g. "20€ Risk Free Bet"), styled as a pill.
 
+### Variant overview
+
+| Variant | Description                         |
+|--------|-------------------------------------|
+| default| Standard promotional bonus label    |
+
 The component uses semantic tokens:
 - Background: \`--bg-card\`
 - Border: \`--border-subtile\`
@@ -51,6 +57,21 @@ This keeps the appearance consistent across light and dark themes.
 
 export default meta;
 type Story = StoryObj<typeof meta>;
+
+export const Overview: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'grid',
+        gap: 'var(--space-3)',
+      }}
+    >
+      <BonusLabel>20€ Risk Free Bet</BonusLabel>
+      <BonusLabel>10€ Free Bet</BonusLabel>
+      <BonusLabel>10% Flash Boost</BonusLabel>
+    </div>
+  ),
+};
 
 export const Playground: Story = {
   args: {

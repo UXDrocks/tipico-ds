@@ -12,7 +12,7 @@ import { TabBar } from './TabBar';
 import { ToastProvider, useToast } from './ToastProvider';
 
 const meta: Meta = {
-  title: 'Examples/Example Page',
+  title: 'Screens/Example Page',
   parameters: {
     layout: 'fullscreen',
     docs: {

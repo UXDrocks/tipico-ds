@@ -15,7 +15,19 @@ const meta: Meta<typeof Toast> = {
     docs: {
       description: {
         component:
-          'Toasts give real-time feedback for user actions. They appear in a stack at the bottom-center of the screen and slide up into view. Use with ToastStack and ToastProvider (or useToast) for action-based feedback.',
+          `
+Toasts give real-time feedback for user actions. They appear in a stack at the bottom-center of the screen and slide up into view. Use with ToastStack and ToastProvider (or useToast) for action-based feedback.
+
+### Variant overview
+
+| Variant  | Description                      |
+|---------|----------------------------------|
+| neutral | Default notification             |
+| info    | Informational toast              |
+| success | Positive outcome / confirmation  |
+| error   | Error or failure                 |
+| warning | Caution or needs attention       |
+          `.trim(),
       },
     },
   },
@@ -27,16 +39,8 @@ export default meta;
 type Story = StoryObj<typeof Toast>;
 
 /** Single toast bar (neutral). Usually used inside ToastStack. */
-export const Default: Story = {
-  args: {
-    variant: 'neutral',
-    message: 'The action was successfully done',
-    showIcon: true,
-  },
-};
-
-/** All five variants in a static stack (no provider). */
-export const AllVariants: StoryObj<typeof ToastStack> = {
+/** All five variants in a static stack (overview) */
+export const Overview: StoryObj<typeof ToastStack> = {
   render: function AllVariantsStory() {
     const items = [
       { id: '1', variant: 'neutral' as const, message: 'The action was successfully done' },
@@ -53,6 +57,14 @@ export const AllVariants: StoryObj<typeof ToastStack> = {
         max={10}
       />
     );
+  },
+};
+
+export const Default: Story = {
+  args: {
+    variant: 'neutral',
+    message: 'The action was successfully done',
+    showIcon: true,
   },
 };
 

@@ -32,6 +32,13 @@ const meta = {
         component: `
 Segmented tab bar with a raised active segment and flush inactive segments. Use for 2–5 options in a single row.
 
+### Variant / usage overview
+
+| Configuration | Description                          |
+|--------------|--------------------------------------|
+| 2 tabs       | Binary choice (e.g. Active / Inactive) |
+| 3–5 tabs     | Small set of sections in one screen  |
+
 ## Usage
 
 \`\`\`tsx
@@ -82,6 +89,24 @@ function TabBarWithState({ tabCount = 2 }: { tabCount?: number }) {
     />
   );
 }
+
+export const Overview: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-3)',
+        minWidth: 320,
+      }}
+    >
+      <TabBarWithState tabCount={2} />
+      <TabBarWithState tabCount={3} />
+      <TabBarWithState tabCount={4} />
+      <TabBarWithState tabCount={5} />
+    </div>
+  ),
+};
 
 export const Default: Story = {
   args: { tabCount: 2 },

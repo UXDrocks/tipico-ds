@@ -26,6 +26,15 @@ const meta = {
         component: `
 Primary, secondary, tertiary (outlined), and destructive button. Supports loading state and optional left/right icons.
 
+### Variant overview
+
+| Variant     | Description                                  |
+|------------|----------------------------------------------|
+| primary    | Main call-to-action on the screen            |
+| secondary  | Secondary / supporting action                |
+| tertiary   | Low emphasis, often text or outline style    |
+| destructive| Irreversible / dangerous action (e.g. delete)|
+
 ## Usage
 
 \`\`\`tsx
@@ -66,6 +75,17 @@ import { Button } from './Button';
 export default meta;
 type Story = StoryObj<typeof meta>;
 
+export const Overview: Story = {
+  render: () => (
+    <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
+      <Button variant="primary">Primary</Button>
+      <Button variant="secondary">Secondary</Button>
+      <Button variant="tertiary">Tertiary</Button>
+      <Button variant="destructive">Destructive</Button>
+    </div>
+  ),
+};
+
 export const Primary: Story = {
   args: { variant: 'primary', children: 'Text' },
 };
@@ -80,17 +100,6 @@ export const Tertiary: Story = {
 
 export const Destructive: Story = {
   args: { variant: 'destructive', children: 'Delete' },
-};
-
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', alignItems: 'center' }}>
-      <Button variant="primary">Primary</Button>
-      <Button variant="secondary">Secondary</Button>
-      <Button variant="tertiary">Tertiary</Button>
-      <Button variant="destructive">Destructive</Button>
-    </div>
-  ),
 };
 
 export const Loading: Story = {

@@ -17,6 +17,18 @@ const preview: Preview = {
         date: /Date$/,
       },
     },
+    options: {
+      storySort: {
+        order: [
+          'System', ['*'],
+          'Components', ['*'],
+          'Screens', ['*'],
+          'Examples', ['*'],
+          'Icons', ['*'],
+          '*',
+        ],
+      },
+    },
   },
   globalTypes: {
     theme: {

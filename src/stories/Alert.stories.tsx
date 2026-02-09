@@ -12,6 +12,16 @@ const meta = {
         component: `
 Banner for inline feedback: info, success, warning, error, or neutral. Supports optional icon, close button, and link.
 
+### Variant overview
+
+| Variant  | Description                           |
+|---------|---------------------------------------|
+| neutral | Generic information / low emphasis    |
+| info    | Informational notice                  |
+| success | Positive outcome / confirmation       |
+| warning | Potential risk or required attention  |
+| error   | Blocking problem or failed action     |
+
 ## Usage
 
 \`\`\`tsx
@@ -49,6 +59,36 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 const defaultBody = 'we maximize spannung in the world of sport betting';
+
+export const Overview: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-3)',
+        minWidth: 320,
+        maxWidth: 480,
+      }}
+    >
+      <Alert variant="neutral" title="Neutral">
+        {defaultBody}
+      </Alert>
+      <Alert variant="info" title="Info">
+        {defaultBody}
+      </Alert>
+      <Alert variant="success" title="Success">
+        {defaultBody}
+      </Alert>
+      <Alert variant="warning" title="Warning">
+        {defaultBody}
+      </Alert>
+      <Alert variant="error" title="Error">
+        {defaultBody}
+      </Alert>
+    </div>
+  ),
+};
 
 export const Neutral: Story = {
   args: {
