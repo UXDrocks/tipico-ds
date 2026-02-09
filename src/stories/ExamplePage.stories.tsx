@@ -176,7 +176,35 @@ function ExamplePageContent() {
                     </span>
                   </div>
                 }
-                filled={false}
+                filled
+                bordered
+              />
+              <List
+                title="Account verification"
+                description="Verify your identity to unlock withdrawals."
+                meta="Pending"
+                leading={
+                  <div className="tipico-list__leading-icons">
+                    <span className="tipico-list__leading-icon tipico-list__leading-icon--primary">
+                      <AlertCircleIcon size={24} />
+                    </span>
+                  </div>
+                }
+                filled
+                bordered
+              />
+              <List
+                title="Responsible gaming"
+                description="Set deposit limits and self-exclusion options."
+                meta="Settings"
+                leading={
+                  <div className="tipico-list__leading-icons">
+                    <span className="tipico-list__leading-icon tipico-list__leading-icon--primary">
+                      <AlertCircleIcon size={24} />
+                    </span>
+                  </div>
+                }
+                filled
                 bordered
               />
             </div>
