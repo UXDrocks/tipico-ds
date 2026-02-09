@@ -1,0 +1,44 @@
+.tipico-article {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tipico-article__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1, 0.25rem);
+}
+
+.tipico-article__eyebrow {
+  font-size: var(--font-size-xs);
+  line-height: var(--leading-xs);
+  font-weight: var(--font-medium);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgb(var(--fg-muted));
+}
+
+.tipico-article__title {
+  margin: 0;
+  font-size: var(--font-size-lg);
+  line-height: var(--leading-lg);
+  font-weight: var(--font-semibold);
+  color: rgb(var(--fg));
+}
+
+.tipico-article__description {
+  margin: 0;
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  color: rgb(var(--fg-muted));
+}
+
+.tipico-article__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3, 0.75rem);
+}
+

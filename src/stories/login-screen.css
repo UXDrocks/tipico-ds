@@ -37,16 +37,16 @@
 
 .tipico-login-screen__title {
   margin: 0 0 var(--space-2, 0.5rem);
-  font-size: 1.75rem;
-  font-weight: 700;
-  line-height: 1.2;
+  font-size: var(--text-xl);
+  line-height: var(--text-xl--line-height);
+  font-weight: var(--font-semibold);
   color: rgb(var(--fg));
 }
 
 .tipico-login-screen__subtitle {
   margin: 0 0 var(--space-6, 1.5rem);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
   color: rgb(var(--fg-muted));
 }
 

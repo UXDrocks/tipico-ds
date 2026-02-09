@@ -147,13 +147,13 @@ function ExamplePageContent() {
           </div>
         )}
 
-        {/* Card: search + actions – containment so inner elements stay inside the card */}
+        {/* Card: search + actions – content card on bg-surface uses bg-card */}
         <section
           style={{
             padding: 'var(--space-6)',
-            background: 'rgb(var(--bg-muted))',
-            borderRadius: 'var(--radius-lg)',
-            border: '1px solid rgb(var(--border))',
+            background: 'rgb(var(--bg-card))',
+            borderRadius: 'var(--radius-card)',
+            border: '1px solid rgb(var(--border-subtile))',
             marginBottom: 'var(--space-6)',
             boxSizing: 'border-box',
             overflow: 'hidden',

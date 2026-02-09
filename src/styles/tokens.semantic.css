@@ -192,7 +192,6 @@
   --border-opacity-95: 0.95;
 
   /* input settings */
-
   --input-date-icon-filter: invert(0);
   --bg-brand-gradient-vertical: linear-gradient(
     180deg,
@@ -201,5 +200,11 @@
     rgb(var(--colors-red-975)) 146px,
     rgb(var(--colors-red-950)) 214px
   );
+}
+
+/* Dark mode overrides for semantic backgrounds */
+.dark {
+  /* Cards on dark surface use a deep neutral instead of white */
+  --bg-card: var(--base-neutrals-900);
 }
 
