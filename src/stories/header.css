@@ -1,0 +1,98 @@
+/* Header – compact page header with optional back/close buttons.
+   Built from .Micro/Header specs and semantic tokens. */
+
+.tipico-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 var(--space-2);
+  gap: var(--space-8);
+  height: 48px;
+  min-height: 48px;
+  font-family: var(--font-sans);
+  background: rgb(var(--bg));
+}
+
+.tipico-header__side {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.tipico-header__side--left {
+  justify-content: flex-start;
+}
+
+.tipico-header__side--right {
+  justify-content: flex-end;
+}
+
+.tipico-header__icon-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.tipico-header__icon-circle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 100px;
+  background: rgb(var(--bg-card));
+  border: 1px solid rgb(var(--border-subtile));
+  color: rgb(var(--text-standard));
+}
+
+.tipico-header__icon {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+}
+
+.tipico-header__title-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  min-width: 0;
+  text-align: center;
+}
+
+.tipico-header__title {
+  font-size: var(--font-size-base);
+  line-height: var(--leading-base);
+  font-weight: var(--font-medium);
+  color: rgb(var(--text-standard));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tipico-header__subtitle {
+  margin-top: var(--space-0-5);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  font-weight: var(--font-normal);
+  color: rgb(var(--text-subtile));
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tipico-header--default {
+  /* uses base bg/text tokens; override here if needed for other variants */
+}
+

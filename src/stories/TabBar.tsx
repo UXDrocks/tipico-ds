@@ -5,6 +5,8 @@ import './tabbar.css';
 export interface TabBarTab {
   id: string;
   label: string;
+  /** Optional icon rendered on the left side of this specific tab */
+  iconLeft?: React.ReactNode;
 }
 
 export interface TabBarProps {
@@ -14,6 +16,11 @@ export interface TabBarProps {
   activeId: string;
   /** Called when a tab is selected */
   onSelect: (id: string) => void;
+  /**
+   * Optional icon rendered on the left side of every tab.
+   * If a tab defines its own `iconLeft`, that icon takes precedence.
+   */
+  iconLeft?: React.ReactNode;
   /** Optional class name for the container */
   className?: string;
   /** Accessible name for the tab list */
@@ -25,6 +32,7 @@ export const TabBar = ({
   tabs,
   activeId,
   onSelect,
+  iconLeft,
   className = '',
   'aria-label': ariaLabel = 'Tabs',
 }: TabBarProps) => {
@@ -36,6 +44,7 @@ export const TabBar = ({
     >
       {tabs.map((tab) => {
         const isActive = tab.id === activeId;
+        const iconForTab = tab.iconLeft ?? iconLeft;
         return (
           <button
             key={tab.id}
@@ -48,7 +57,8 @@ export const TabBar = ({
             className={`tipico-tabbar__tab ${isActive ? 'tipico-tabbar__tab--active' : ''}`}
             onClick={() => onSelect(tab.id)}
           >
-            {tab.label}
+            {iconForTab && <span className="tipico-tabbar__icon">{iconForTab}</span>}
+            <span className="tipico-tabbar__label">{tab.label}</span>
           </button>
         );
       })}

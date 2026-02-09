@@ -1,22 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { BonusLabel } from './BonusLabel';
-
-/** Simple local icon placeholder for bonus labels. Uses currentColor. */
-const BonusIcon = () => (
-  <svg
-    width={18}
-    height={18}
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth={2}
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden
-  >
-    <path d="M12 2 7 22l5-4 5 4-5-20Z" />
-  </svg>
-);
+import { ICON_OPTIONS, type IconOption, iconFromOption } from './icons';
 
 const meta = {
   title: 'Components/BonusLabel',
@@ -82,44 +66,63 @@ export const Playground: Story = {
 
 type WithIconArgs = {
   showLeftIcon: boolean;
+  leftIcon: IconOption;
   showRightIcon: boolean;
+  rightIcon: IconOption;
 };
 
 export const WithIcon: Story<WithIconArgs> = {
   args: {
     showLeftIcon: true,
+    leftIcon: 'XCircle',
     showRightIcon: false,
+    rightIcon: 'XCircle',
   },
   argTypes: {
     showLeftIcon: { control: 'boolean' },
+    leftIcon: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon links',
+    },
     showRightIcon: { control: 'boolean' },
+    rightIcon: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon rechts',
+    },
   },
-  render: ({ showLeftIcon, showRightIcon }) => (
-    <div
-      style={{
-        display: 'grid',
-        gap: 'var(--space-3)',
-      }}
-    >
-      <BonusLabel
-        iconLeft={showLeftIcon ? <BonusIcon /> : undefined}
-        iconRight={showRightIcon ? <BonusIcon /> : undefined}
+  render: ({ showLeftIcon, leftIcon, showRightIcon, rightIcon }) => {
+    const left = iconFromOption(leftIcon, 18);
+    const right = iconFromOption(rightIcon, 18);
+
+    return (
+      <div
+        style={{
+          display: 'grid',
+          gap: 'var(--space-3)',
+        }}
       >
-        20€ Risk Free Bet
-      </BonusLabel>
-      <BonusLabel
-        iconLeft={showLeftIcon ? <BonusIcon /> : undefined}
-        iconRight={showRightIcon ? <BonusIcon /> : undefined}
-      >
-        10€ Free Bet
-      </BonusLabel>
-      <BonusLabel
-        iconLeft={showLeftIcon ? <BonusIcon /> : undefined}
-        iconRight={showRightIcon ? <BonusIcon /> : undefined}
-      >
-        10% Flash Boost
-      </BonusLabel>
-    </div>
-  ),
+        <BonusLabel
+          iconLeft={showLeftIcon ? left : undefined}
+          iconRight={showRightIcon ? right : undefined}
+        >
+          20€ Risk Free Bet
+        </BonusLabel>
+        <BonusLabel
+          iconLeft={showLeftIcon ? left : undefined}
+          iconRight={showRightIcon ? right : undefined}
+        >
+          10€ Free Bet
+        </BonusLabel>
+        <BonusLabel
+          iconLeft={showLeftIcon ? left : undefined}
+          iconRight={showRightIcon ? right : undefined}
+        >
+          10% Flash Boost
+        </BonusLabel>
+      </div>
+    );
+  },
 };
 

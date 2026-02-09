@@ -11,6 +11,10 @@
 }
 
 .tipico-tabbar__tab {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-1, 0.25rem);
   padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
   font-size: var(--font-size-sm, 0.814rem);
   line-height: var(--leading-sm, 1.25rem);
@@ -21,6 +25,17 @@
   border-radius: var(--radius-sm, 0.25rem);
   cursor: pointer;
   transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tipico-tabbar__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.tipico-tabbar__label {
+  white-space: nowrap;
 }
 
 .tipico-tabbar__tab:hover {

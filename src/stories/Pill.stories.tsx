@@ -1,19 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Pill } from './Pill';
-
-/** Temporary icon placeholder so stories do not depend on a real icon set. */
-const IconPlaceholder = () => (
-  <span
-    aria-hidden
-    style={{
-      display: 'inline-block',
-      width: 14,
-      height: 14,
-      borderRadius: 999,
-      background: 'rgb(var(--signals-bg-info))',
-    }}
-  />
-);
+import { ICON_OPTIONS, type IconOption, iconFromOption } from './icons';
 
 const meta = {
   title: 'Components/Pill',
@@ -133,36 +120,55 @@ export const Playground: Story = {
 
 type WithIconArgs = {
   showLeftIcon: boolean;
+  leftIcon: IconOption;
   showRightIcon: boolean;
+  rightIcon: IconOption;
 };
 
 export const WithIcon: Story<WithIconArgs> = {
   args: {
     showLeftIcon: true,
+    leftIcon: 'XCircle',
     showRightIcon: true,
+    rightIcon: 'XCircle',
   },
   argTypes: {
     showLeftIcon: { control: 'boolean' },
+    leftIcon: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon links',
+    },
     showRightIcon: { control: 'boolean' },
+    rightIcon: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon rechts',
+    },
   },
-  render: ({ showLeftIcon, showRightIcon }) => (
-    <div
-      style={{
-        display: 'flex',
-        gap: 'var(--space-4)',
-        alignItems: 'center',
-        flexWrap: 'wrap',
-      }}
-    >
-      <Pill
-        variant="info"
-        active
-        iconLeft={showLeftIcon ? <IconPlaceholder /> : undefined}
-        iconRight={showRightIcon ? <IconPlaceholder /> : undefined}
+  render: ({ showLeftIcon, leftIcon, showRightIcon, rightIcon }) => {
+    const left = iconFromOption(leftIcon, 14);
+    const right = iconFromOption(rightIcon, 14);
+
+    return (
+      <div
+        style={{
+          display: 'flex',
+          gap: 'var(--space-4)',
+          alignItems: 'center',
+          flexWrap: 'wrap',
+        }}
       >
-        Pill with icons
-      </Pill>
-    </div>
-  ),
+        <Pill
+          variant="info"
+          active
+          iconLeft={showLeftIcon ? left : undefined}
+          iconRight={showRightIcon ? right : undefined}
+        >
+          Pill with icons
+        </Pill>
+      </div>
+    );
+  },
 };
 

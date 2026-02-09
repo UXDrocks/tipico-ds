@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { TabBar } from './TabBar';
 import type { TabBarTab } from './TabBar';
+import { ICON_OPTIONS, type IconOption, iconFromOption } from './icons';
 
 const defaultTabSets: Record<number, TabBarTab[]> = {
   2: [{ id: 'active', label: 'Active' }, { id: 'inactive', label: 'Inactive' }],
@@ -53,7 +54,7 @@ const tabs = [
 <TabBar tabs={tabs} activeId={activeId} onSelect={setActiveId} aria-label="Section tabs" />
 \`\`\`
 
-**Props:** \`tabs\` (\`{ id: string; label: string }[]\`), \`activeId\`, \`onSelect(id)\`, \`aria-label\` (optional).
+**Props:** \`tabs\` (\`{ id: string; label: string; iconLeft?: React.ReactNode }[]\`), \`activeId\`, \`onSelect(id)\`, \`aria-label\` (optional).
 
 ## Rules
 
@@ -61,6 +62,7 @@ const tabs = [
 - Keep labels short (one or two words).
 - Ensure \`activeId\` matches one of \`tabs[].id\` so one tab is always active.
 - Provide \`aria-label\` when the tab list is not labeled by visible context.
+- Use \`iconLeft\` on the component for a shared icon on all tabs, or \`iconLeft\` on individual \`tabs[]\` items for per-tab icons.
         `.trim(),
       },
     },
@@ -129,7 +131,78 @@ export const FiveTabs: Story = {
   render: () => <TabBarWithState tabCount={5} />,
 };
 
-export const WithDropdown: Story = {
-  args: { tabCount: 2 },
-  render: (args) => <TabBarWithState tabCount={args.tabCount} />,
+type WithDropdownArgs = {
+  tabCount?: number;
+  iconTab1?: IconOption;
+  iconTab2?: IconOption;
+  iconTab3?: IconOption;
+  iconTab4?: IconOption;
+  iconTab5?: IconOption;
+};
+
+function TabBarPerTabIcons({
+  tabCount = 3,
+  iconTab1 = 'XCircle',
+  iconTab2 = 'XCircle',
+  iconTab3 = 'XCircle',
+  iconTab4 = 'none',
+  iconTab5 = 'none',
+}: WithDropdownArgs) {
+  const baseTabs = defaultTabSets[tabCount] ?? defaultTabSets[3];
+  const iconOptions: IconOption[] = [iconTab1, iconTab2, iconTab3, iconTab4, iconTab5];
+
+  const tabsWithIcons: TabBarTab[] = baseTabs.map((tab, index) => ({
+    ...tab,
+    iconLeft: iconFromOption(iconOptions[index] ?? 'none', 14),
+  }));
+
+  const [activeId, setActiveId] = useState(tabsWithIcons[0]?.id ?? baseTabs[0].id);
+
+  return (
+    <TabBar
+      tabs={tabsWithIcons}
+      activeId={activeId}
+      onSelect={setActiveId}
+      aria-label="Tabs with per-tab icons"
+    />
+  );
+}
+
+export const WithIcon: Story = {
+  args: {
+    tabCount: 3,
+    iconTab1: 'XCircle',
+    iconTab2: 'XCircle',
+    iconTab3: 'XCircle',
+    iconTab4: 'none',
+    iconTab5: 'none',
+  },
+  argTypes: {
+    iconTab1: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon for first tab (left)',
+    },
+    iconTab2: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon for second tab (left)',
+    },
+    iconTab3: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon for third tab (left)',
+    },
+    iconTab4: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon for fourth tab (left)',
+    },
+    iconTab5: {
+      control: 'select',
+      options: ICON_OPTIONS,
+      description: 'Icon for fifth tab (left)',
+    },
+  },
+  render: (args) => <TabBarPerTabIcons {...(args as WithDropdownArgs)} />,
 };
