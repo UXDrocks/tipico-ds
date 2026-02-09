@@ -9,14 +9,15 @@
   color: rgb(var(--fg));
 }
 
+/* Same max-width and padding as other screens (Example Page, Account Verification) */
 .tipico-login-screen__inner {
   flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 28rem;
+  max-width: 48rem;
   margin: 0 auto;
-  padding: var(--space-6, 1.5rem) var(--space-4, 1rem);
+  padding: var(--space-6, 1.5rem) max(var(--space-4, 1rem), 1rem) var(--space-8, 2rem);
   box-sizing: border-box;
 }
 

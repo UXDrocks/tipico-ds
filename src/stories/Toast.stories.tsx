@@ -46,7 +46,7 @@ export const Overview: Story = {
         display: 'flex',
         flexDirection: 'column',
         gap: 'var(--space-3)',
-        maxWidth: '28rem',
+        maxWidth: '48rem',
       }}
     >
       <Toast variant="neutral" message="The action was successfully done" showIcon />

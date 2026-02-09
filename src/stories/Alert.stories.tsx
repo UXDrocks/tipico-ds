@@ -227,7 +227,14 @@ export const DarkMode: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="dark" style={{ padding: 24, background: 'rgb(var(--bg))', borderRadius: 8 }}>
+      <div
+        className="dark"
+        style={{
+          padding: 'var(--space-4)',
+          background: 'rgb(var(--bg))',
+          borderRadius: 'var(--radius-md)',
+        }}
+      >
         <Story />
       </div>
     ),
@@ -246,7 +253,17 @@ export const AllVariantsDark: Story = {
   },
   decorators: [
     (Story) => (
-      <div className="dark" style={{ padding: 24, background: 'rgb(var(--bg))', borderRadius: 8, display: 'flex', flexDirection: 'column', gap: 12 }}>
+      <div
+        className="dark"
+        style={{
+          padding: 'var(--space-4)',
+          background: 'rgb(var(--bg))',
+          borderRadius: 'var(--radius-md)',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 'var(--space-3)',
+        }}
+      >
         <Story />
       </div>
     ),

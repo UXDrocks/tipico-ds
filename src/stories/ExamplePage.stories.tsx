@@ -61,12 +61,12 @@ function ExamplePageContent() {
       {/* Page header using shared Header component */}
       <Header title="Example page" />
 
-      {/* Main: constrained width + min padding to avoid overlap and improve readability */}
+      {/* Main: same max-width as other screens (28rem), shared padding */}
       <main
         style={{
-          maxWidth: '40rem',
+          maxWidth: '48rem',
           margin: '0 auto',
-          padding: 'var(--space-6) max(var(--space-4), 1rem)',
+          padding: 'var(--space-6) max(var(--space-4), 1rem) var(--space-8)',
           minHeight: '50vh',
         }}
       >

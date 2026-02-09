@@ -4,12 +4,14 @@ import '../src/styles/tokens.semantic.css';
 import '../src/styles/tokens.light.css';
 import '../src/styles/tokens.dark.css';
 import '../src/styles/theme.css';
+import '../src/styles/storybook-overrides.css';
 
 import type { Preview } from '@storybook/react';
 
 const preview: Preview = {
   parameters: {
-    layout: 'centered',
+    // Use fullscreen so stories can take the full available width/height.
+    layout: 'fullscreen',
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
@@ -68,14 +70,7 @@ const preview: Preview = {
   decorators: [
     (Story, context) => {
       const theme = context.globals?.theme ?? 'light';
-      const viewportWidth = context.globals?.viewportWidth ?? '640';
-      const layout = context.parameters?.layout ?? 'centered';
-      const isFullscreen = layout === 'fullscreen';
-
-      const numericWidth =
-        isFullscreen || viewportWidth === 'full'
-          ? undefined
-          : Number.parseInt(viewportWidth as string, 10) || undefined;
+      // We keep viewportWidth for future use, but the preview always stretches full width now.
 
       return (
         <div
@@ -84,18 +79,15 @@ const preview: Preview = {
             minHeight: '100vh',
             background: 'rgb(var(--bg))',
             color: 'rgb(var(--fg))',
-            padding: isFullscreen ? 0 : 24,
             boxSizing: 'border-box',
             fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-            display: 'flex',
-            alignItems: isFullscreen ? 'stretch' : 'flex-start',
-            justifyContent: isFullscreen ? 'stretch' : 'center',
           }}
         >
           <div
             style={{
-              width: numericWidth ? `${numericWidth}px` : '100%',
+              width: '100%',
               maxWidth: '100%',
+              minHeight: '100vh',
             }}
           >
             <Story />

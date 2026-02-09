@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from './Button';
 import { TextField } from './TextField';
 import { Link } from './Link';
+import { Alert } from './Alert';
 
 import './login-screen.css';
 
@@ -73,6 +74,17 @@ export const LoginScreen = ({
             onSubmit={handleSubmit}
             noValidate
           >
+            {submitError && (
+              <div style={{ marginBottom: 'var(--space-4, 1rem)' }}>
+                <Alert
+                  variant="error"
+                  title="Login failed"
+                >
+                  {submitError}
+                </Alert>
+              </div>
+            )}
+
             <TextField
               label="Email"
               type="email"
@@ -104,12 +116,6 @@ export const LoginScreen = ({
               <div className="tipico-login-screen__forgot">
                 <Link href={forgotPasswordHref}>Forgot password?</Link>
               </div>
-            )}
-
-            {submitError && (
-              <p className="tipico-login-screen__submit-error" role="alert">
-                {submitError}
-              </p>
             )}
 
             <Button
