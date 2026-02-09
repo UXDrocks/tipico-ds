@@ -41,7 +41,8 @@
   --bg-modal-0: var(--base-transparent);
   --bg-overlay: var(--base-neutrals-50);
   --bg-tabbar: var(--base-neutrals-50);
-  --bg-list-default: var(--base-transparent);
+  /* List row background when "filled" is true (white in light mode) */
+  --bg-list-default: var(--base-white);
   --bg-list-hover: var(--base-alpha-black-5);
   --bg-list-active: var(--base-alpha-black-10);
   --bg-dropdown: var(--colors-haze-200);
@@ -206,5 +207,10 @@
 .dark {
   /* Cards on dark surface use a deep neutral instead of white */
   --bg-card: var(--base-neutrals-900);
+
+  /* Lists on dark surface: slightly raised tiles with softer hover */
+  --bg-list-default: var(--base-neutrals-900);
+  --bg-list-hover: var(--base-alpha-white-5);
+  --bg-list-active: var(--base-alpha-white-10);
 }
 

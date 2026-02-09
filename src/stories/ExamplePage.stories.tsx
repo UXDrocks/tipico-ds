@@ -13,9 +13,11 @@ import { ToastProvider, useToast } from './ToastProvider';
 import { Card } from './Card';
 import { Article } from './Article';
 import { InputField } from './InputField';
+import { Header } from './Header';
 import { Pill } from './Pill';
 import { Label } from './Label';
-import { Header } from './Header';
+import { List } from './List';
+import { AlertCircleIcon } from './icons';
 
 const meta: Meta = {
   title: 'Screens/Example Page',
@@ -122,6 +124,61 @@ function ExamplePageContent() {
               aria-label="Main navigation"
             />
           </div>
+        </section>
+
+        {/* List items */}
+        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="list-heading">
+          <h2
+            id="list-heading"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              lineHeight: 'var(--leading-lg)',
+              fontWeight: 'var(--font-semibold)',
+              marginTop: 0,
+              marginBottom: 'var(--space-4)',
+              color: 'rgb(var(--fg))',
+            }}
+          >
+            List items
+          </h2>
+          <Card variant="plain">
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 'var(--space-3)',
+              }}
+            >
+              <List
+                title="Sports limits (optional)"
+                description="Configure optional deposit limits for your sports account."
+                meta="Info"
+                leading={
+                  <div className="tipico-list__leading-icons">
+                    <span className="tipico-list__leading-icon tipico-list__leading-icon--primary">
+                      <AlertCircleIcon size={24} />
+                    </span>
+                  </div>
+                }
+                filled
+                bordered
+              />
+              <List
+                title="Germany vs. Spain"
+                description="Live betting and upcoming markets."
+                meta="Details"
+                leading={
+                  <div className="tipico-list__leading-icons">
+                    <span className="tipico-list__leading-icon tipico-list__leading-icon--primary">
+                      <AlertCircleIcon size={24} />
+                    </span>
+                  </div>
+                }
+                filled={false}
+                bordered
+              />
+            </div>
+          </Card>
         </section>
 
         {/* Alert */}
