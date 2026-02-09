@@ -18,6 +18,7 @@ import { Pill } from './Pill';
 import { Label } from './Label';
 import { List } from './List';
 import { AlertCircleIcon } from './icons';
+import { Dialog } from './Dialog';
 
 const meta: Meta = {
   title: 'Screens/Example Page',
@@ -47,6 +48,7 @@ function ExamplePageContent() {
   const [activeTab, setActiveTab] = useState('bets');
   const [search, setSearch] = useState('');
   const [alertOpen, setAlertOpen] = useState(true);
+  const [dialogOpen, setDialogOpen] = useState(false);
   const { addToast } = useToast();
 
   return (
@@ -369,6 +371,45 @@ function ExamplePageContent() {
             </Label>
           </div>
         </section>
+
+        {/* Dialog demo */}
+        <section
+          style={{ marginBottom: 'var(--space-6)' }}
+          aria-labelledby="dialog-heading"
+        >
+          <h2
+            id="dialog-heading"
+            style={{
+              fontSize: 'var(--font-size-lg)',
+              lineHeight: 'var(--leading-lg)',
+              fontWeight: 'var(--font-semibold)',
+              marginTop: 0,
+              marginBottom: 'var(--space-4)',
+              color: 'rgb(var(--fg))',
+            }}
+          >
+            Dialog
+          </h2>
+          <Button variant="secondary" onClick={() => setDialogOpen(true)}>
+            Open dialog
+          </Button>
+        </section>
+
+        <Dialog
+          open={dialogOpen}
+          onClose={() => setDialogOpen(false)}
+          title="Title Header"
+          description="We maximize spannung in the world of sport betting."
+          showIcon
+          showClose
+          primaryLabel="Accept"
+          primaryVariant="primary"
+          secondaryLabel="Decline"
+          secondaryVariant="secondary"
+          showSecondaryButton
+          onPrimary={() => setDialogOpen(false)}
+          onSecondary={() => setDialogOpen(false)}
+        />
 
         {/* Buttons + link */}
         <section aria-labelledby="buttons-heading">
