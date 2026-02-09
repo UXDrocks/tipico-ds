@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "storybook": "storybook dev --port 6006",
+    "storybook": "storybook dev --port 7007",
     "build-storybook": "storybook build"
   },
   "dependencies": {
