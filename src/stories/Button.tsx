@@ -2,36 +2,96 @@ import React from 'react';
 
 import './button.css';
 
-export interface ButtonProps {
-  /** Is this the principal call to action on the page? */
-  primary?: boolean;
-  /** What background color to use */
-  backgroundColor?: string;
-  /** How large should the button be? */
+export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive';
+
+export interface ButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /** Visual variant */
+  variant?: ButtonVariant;
+  /** Button content */
+  children: React.ReactNode;
+  /** Size */
   size?: 'small' | 'medium' | 'large';
-  /** Button contents */
-  label: string;
-  /** Optional click handler */
-  onClick?: () => void;
+  /** Full width */
+  fullWidth?: boolean;
+  /** Show loading spinner and disable interaction */
+  loading?: boolean;
+  /** Optional label when loading (e.g. "Saving…") */
+  loadingLabel?: string;
+  /** Icon or element before the label */
+  iconLeft?: React.ReactNode;
+  /** Icon or element after the label */
+  iconRight?: React.ReactNode;
 }
 
-/** Primary UI component for user interaction */
+function Spinner() {
+  return (
+    <span className="tipico-btn__spinner" aria-hidden>
+      <svg width="1em" height="1em" viewBox="0 0 24 24" fill="none">
+        <circle
+          cx="12"
+          cy="12"
+          r="10"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeDasharray="32"
+          strokeDashoffset="12"
+        />
+      </svg>
+    </span>
+  );
+}
+
+/** Button with primary, secondary, tertiary, and destructive variants. Supports loading state and optional icons. */
 export const Button = ({
-  primary = false,
+  variant = 'primary',
+  children,
   size = 'medium',
-  backgroundColor,
-  label,
+  fullWidth = false,
+  loading = false,
+  loadingLabel,
+  iconLeft,
+  iconRight,
+  className = '',
+  disabled,
+  type = 'button',
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'storybook-button--primary' : 'storybook-button--secondary';
+  const isDisabled = disabled || loading;
+
   return (
     <button
-      type="button"
-      className={['storybook-button', `storybook-button--${size}`, mode].join(' ')}
-      style={{ backgroundColor }}
+      type={type}
+      className={[
+        'tipico-btn',
+        `tipico-btn--${variant}`,
+        `tipico-btn--${size}`,
+        fullWidth ? 'tipico-btn--full' : '',
+        loading ? 'tipico-btn--loading' : '',
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      disabled={isDisabled}
+      aria-busy={loading}
+      aria-disabled={isDisabled}
       {...props}
     >
-      {label}
+      {loading ? (
+        <>
+          <Spinner />
+          <span className="tipico-btn__text">
+            {loadingLabel ?? (typeof children === 'string' ? children : 'Loading…')}
+          </span>
+        </>
+      ) : (
+        <>
+          {iconLeft && <span className="tipico-btn__icon tipico-btn__icon--left">{iconLeft}</span>}
+          <span className="tipico-btn__text">{children}</span>
+          {iconRight && <span className="tipico-btn__icon tipico-btn__icon--right">{iconRight}</span>}
+        </>
+      )}
     </button>
   );
 };

@@ -1,0 +1,85 @@
+/* LoginScreen – mobile-first, design tokens */
+
+.tipico-login-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  background: rgb(var(--bg));
+  color: rgb(var(--fg));
+}
+
+.tipico-login-screen__inner {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 28rem;
+  margin: 0 auto;
+  padding: var(--space-6, 1.5rem) var(--space-4, 1rem);
+  box-sizing: border-box;
+}
+
+.tipico-login-screen__header {
+  flex-shrink: 0;
+  margin-bottom: var(--space-8, 2rem);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5rem;
+}
+
+.tipico-login-screen__content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.tipico-login-screen__title {
+  margin: 0 0 var(--space-2, 0.5rem);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: rgb(var(--fg));
+}
+
+.tipico-login-screen__subtitle {
+  margin: 0 0 var(--space-6, 1.5rem);
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgb(var(--fg-muted));
+}
+
+.tipico-login-screen__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4, 1rem);
+  margin-bottom: var(--space-6, 1.5rem);
+}
+
+.tipico-login-screen__forgot {
+  margin-top: calc(-1 * var(--space-2, 0.5rem));
+  margin-bottom: var(--space-2, 0.5rem);
+  text-align: right;
+}
+
+.tipico-login-screen__submit-error {
+  margin: 0;
+  font-size: 0.875rem;
+  color: rgb(var(--negative));
+}
+
+.tipico-login-screen__submit {
+  margin-top: var(--space-2, 0.5rem);
+}
+
+.tipico-login-screen__signup {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: rgb(var(--fg-muted));
+  text-align: center;
+}
+
+.tipico-login-screen__signup .tipico-link {
+  margin-left: 0.15em;
+}

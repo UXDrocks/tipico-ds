@@ -1,0 +1,32 @@
+/* Link – design tokens from theme.css */
+
+.tipico-link {
+  font-size: inherit;
+  line-height: 1.25;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.15s ease;
+  cursor: pointer;
+}
+
+.tipico-link--default {
+  color: rgb(var(--link));
+}
+
+.tipico-link--default:hover {
+  color: rgb(var(--link-hover));
+}
+
+.tipico-link--default:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.tipico-link--muted {
+  color: rgb(var(--fg-muted));
+}
+
+.tipico-link--muted:hover {
+  color: rgb(var(--fg));
+}

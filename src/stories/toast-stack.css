@@ -1,0 +1,32 @@
+/* ToastStack – fixed at bottom, lower-mid; toasts slide up into view */
+
+.tipico-toast-stack {
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: var(--toast-stack-bottom, var(--space-6));
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  width: 100%;
+  max-width: min(28rem, calc(100vw - var(--space-8)));
+  padding: 0 var(--space-4);
+  pointer-events: none;
+}
+
+.tipico-toast-stack__item {
+  pointer-events: auto;
+  animation: tipico-toast-slide-up 0.35s ease-out forwards;
+}
+
+@keyframes tipico-toast-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

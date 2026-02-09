@@ -1,30 +1,143 @@
-.storybook-button {
-  display: inline-block;
+/* Button – primary, secondary, tertiary, destructive. Loading + icons. Design tokens. */
+
+.tipico-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   cursor: pointer;
   border: 0;
-  border-radius: 3em;
-  font-weight: 700;
-  line-height: 1;
-  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: var(--font-bold);
+  line-height: 1.25;
+  font-family: var(--font-sans);
+  border-radius: var(--radius-lg);
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.05s ease,
+    opacity 0.15s ease;
 }
-.storybook-button--primary {
-  background-color: #555ab9;
-  color: white;
+
+.tipico-btn:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 2px;
 }
-.storybook-button--secondary {
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
-  background-color: transparent;
-  color: #333;
+
+.tipico-btn:active:not(:disabled):not(.tipico-btn--loading) {
+  transform: scale(0.98);
 }
-.storybook-button--small {
-  padding: 10px 16px;
-  font-size: 12px;
+
+.tipico-btn:disabled,
+.tipico-btn--loading {
+  opacity: 0.8;
+  cursor: not-allowed;
 }
-.storybook-button--medium {
-  padding: 11px 20px;
-  font-size: 14px;
+
+.tipico-btn__text {
+  display: inline-flex;
+  align-items: center;
 }
-.storybook-button--large {
-  padding: 12px 24px;
-  font-size: 16px;
+
+.tipico-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tipico-btn__icon svg {
+  width: 1.25em;
+  height: 1.25em;
+}
+
+.tipico-btn__spinner {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  animation: tipico-btn-spin 0.7s linear infinite;
+}
+
+@keyframes tipico-btn-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Primary */
+.tipico-btn--primary {
+  background-color: rgb(var(--button-primary-bg));
+  color: rgb(var(--button-primary-fg));
+}
+
+.tipico-btn--primary:hover:not(:disabled):not(.tipico-btn--loading) {
+  background-color: rgb(var(--button-primary-hover));
+}
+
+.tipico-btn--primary:focus-visible {
+  outline-color: rgb(var(--button-primary-fg));
+}
+
+/* Secondary */
+.tipico-btn--secondary {
+  background-color: rgb(var(--button-secondary-bg));
+  color: rgb(var(--button-secondary-fg));
+}
+
+.tipico-btn--secondary:hover:not(:disabled):not(.tipico-btn--loading) {
+  background-color: rgb(var(--button-secondary-hover));
+}
+
+.tipico-btn--secondary:focus-visible {
+  outline-color: rgb(var(--button-secondary-fg));
+}
+
+/* Tertiary */
+.tipico-btn--tertiary {
+  background-color: rgb(var(--button-tertiary-bg));
+  color: rgb(var(--button-tertiary-fg));
+  border: 1px solid rgb(var(--button-tertiary-border));
+}
+
+.tipico-btn--tertiary:hover:not(:disabled):not(.tipico-btn--loading) {
+  background-color: rgb(var(--button-tertiary-hover));
+}
+
+.tipico-btn--tertiary:focus-visible {
+  outline-color: rgb(var(--button-tertiary-border));
+}
+
+/* Destructive */
+.tipico-btn--destructive {
+  background-color: rgb(var(--button-destructive-bg));
+  color: rgb(var(--button-destructive-fg));
+}
+
+.tipico-btn--destructive:hover:not(:disabled):not(.tipico-btn--loading) {
+  background-color: rgb(var(--button-destructive-hover));
+}
+
+.tipico-btn--destructive:focus-visible {
+  outline-color: rgb(var(--button-destructive-fg));
+}
+
+/* Sizes – typography tokens */
+.tipico-btn--small {
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  min-height: 2.25rem;
+}
+
+.tipico-btn--medium {
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-base);
+  line-height: var(--leading-base);
+  min-height: 2.75rem;
+}
+
+.tipico-btn--large {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--font-size-lg);
+  line-height: var(--leading-lg);
+  min-height: 3.25rem;
+}
+
+.tipico-btn--full {
+  width: 100%;
 }

@@ -1,0 +1,45 @@
+/* TabBar – segmented control, active raised / inactive flush. Design tokens. */
+
+.tipico-tabbar {
+  display: inline-flex;
+  padding: var(--space-0-5, 0.125rem);
+  background: rgb(var(--tabbar-track-bg));
+  border-radius: var(--radius-md, 0.5rem);
+  box-shadow: var(--tabbar-track-shadow);
+  font-family: var(--font-sans);
+  gap: 0;
+}
+
+.tipico-tabbar__tab {
+  padding: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  font-size: var(--font-size-sm, 0.814rem);
+  line-height: var(--leading-sm, 1.25rem);
+  font-weight: var(--font-semibold, 600);
+  color: rgb(var(--fg));
+  background: rgb(var(--tabbar-inactive-bg));
+  border: 0;
+  border-radius: var(--radius-sm, 0.25rem);
+  cursor: pointer;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.tipico-tabbar__tab:hover {
+  background: rgb(var(--tabbar-inactive-bg));
+  filter: brightness(0.97);
+}
+
+.tipico-tabbar__tab:focus-visible {
+  outline: 2px solid rgb(var(--primary));
+  outline-offset: 2px;
+}
+
+.tipico-tabbar__tab--active {
+  background: rgb(var(--tabbar-active-bg));
+  box-shadow: var(--tabbar-active-shadow);
+  cursor: default;
+}
+
+.tipico-tabbar__tab--active:hover {
+  background: rgb(var(--tabbar-active-bg));
+  filter: none;
+}

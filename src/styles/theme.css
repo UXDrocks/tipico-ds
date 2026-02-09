@@ -3,6 +3,14 @@
 ========================= */
 
 :root {
+  /* Typography */
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  /* Font weights (Tailwind-aligned) */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+
   /* Background */
   --bg: 249 249 251;            /* neutrals.25 */
   --bg-muted: 238 240 241;      /* neutrals.50 */
@@ -19,10 +27,67 @@
   /* Border */
   --border: 202 206 208;        /* neutrals.200 */
 
+  /* Input / Field */
+  --input-bg: 255 255 255;
+  --input-border: 202 206 208;  /* neutrals.200 */
+  --input-fg: 77 82 86;         /* neutrals.700 */
+  --input-placeholder: 123 132 138; /* neutrals.500 */
+  --input-focus-border: 200 16 46;   /* primary.500 */
+  --input-error-border: 230 0 0;     /* negative */
+
+  /* Link */
+  --link: 200 16 46;            /* primary.500 */
+  --link-hover: 132 0 23;       /* primary.700 */
+
   /* Status */
   --success: 41 169 91;
   --warning: 255 198 0;
   --negative: 230 0 0;
+  --info: 47 165 204;
+
+  /* Alert (subtle backgrounds + borders) */
+  --alert-neutral-bg: 238 240 241;
+  --alert-neutral-border: 206 210 212;
+  --alert-neutral-icon: 77 82 86;
+  --alert-info-bg: 232 245 250;
+  --alert-info-border: 183 224 238;
+  --alert-info-icon: 47 165 204;
+  --alert-error-bg: 255 233 231;
+  --alert-error-border: 249 166 159;
+  --alert-success-bg: 225 248 237;
+  --alert-success-border: 131 224 175;
+  --alert-warning-bg: 255 249 227;
+  --alert-warning-border: 255 232 141;
+
+  /* Button */
+  --button-primary-bg: 30 33 34;
+  --button-primary-hover: 50 53 56;
+  --button-primary-fg: 255 255 255;
+  --button-secondary-bg: 238 240 241;
+  --button-secondary-hover: 229 233 235;
+  --button-secondary-fg: 30 33 34;
+  --button-tertiary-bg: 249 249 251;
+  --button-tertiary-hover: 238 240 241;
+  --button-tertiary-fg: 30 33 34;
+  --button-tertiary-border: 202 206 208;
+  --button-destructive-bg: 230 0 0;
+  --button-destructive-hover: 180 0 0;
+  --button-destructive-fg: 255 255 255;
+
+  /* TabBar */
+  --tabbar-track-bg: 229 233 235;
+  --tabbar-inactive-bg: 238 240 241;
+  --tabbar-active-bg: 255 255 255;
+  --tabbar-active-shadow: 0 1px 2px rgb(0 0 0 / 0.06);
+  --tabbar-track-shadow: inset 0 1px 2px rgb(0 0 0 / 0.04);
+
+  /* Toast (solid backgrounds, white text) */
+  --toast-neutral-bg: 30 33 34;
+  --toast-info-bg: 47 165 204;
+  --toast-success-bg: 41 169 91;
+  --toast-error-bg: 230 0 0;
+  --toast-warning-bg: 245 158 11;
+  --toast-fg: 255 255 255;
 
   /* Radius */
   --radius-sm: 0.25rem;
@@ -45,4 +110,72 @@
   --primary-hover: 236 90 117;
 
   --border: 60 60 60;
+
+  --input-bg: 54 57 60;
+  --input-border: 60 60 60;
+  --input-fg: 229 233 235;
+  --input-placeholder: 176 181 185;
+  --input-focus-border: 236 90 117;
+  --input-error-border: 244 100 100;
+
+  --link: 236 90 117;
+  --link-hover: 246 156 170;
+
+  /* Alert dark */
+  --alert-neutral-bg: 54 57 60;
+  --alert-neutral-border: 70 73 76;
+  --alert-neutral-icon: 229 233 235;
+  --alert-info-bg: 25 45 55;
+  --alert-info-border: 40 85 105;
+  --alert-info-icon: 120 200 230;
+  --alert-error-bg: 55 25 25;
+  --alert-error-border: 90 40 40;
+  --alert-success-bg: 25 45 35;
+  --alert-success-border: 40 75 55;
+  --alert-warning-bg: 55 50 25;
+  --alert-warning-border: 90 80 40;
+
+  /* Button dark */
+  --button-primary-bg: 229 233 235;
+  --button-primary-hover: 255 255 255;
+  --button-primary-fg: 30 33 34;
+  --button-secondary-bg: 54 57 60;
+  --button-secondary-hover: 70 73 76;
+  --button-secondary-fg: 229 233 235;
+  --button-tertiary-bg: transparent;
+  --button-tertiary-hover: 54 57 60;
+  --button-tertiary-fg: 229 233 235;
+  --button-tertiary-border: 70 73 76;
+  --button-destructive-bg: 230 0 0;
+  --button-destructive-hover: 255 80 80;
+  --button-destructive-fg: 255 255 255;
+
+  /* TabBar dark */
+  --tabbar-track-bg: 40 43 46;
+  --tabbar-inactive-bg: 54 57 60;
+  --tabbar-active-bg: 70 73 76;
+  --tabbar-active-shadow: 0 1px 2px rgb(0 0 0 / 0.2);
+  --tabbar-track-shadow: inset 0 1px 2px rgb(0 0 0 / 0.15);
+
+  /* Toast dark (same solid colors, good on dark canvas) */
+  --toast-neutral-bg: 54 57 60;
+  --toast-info-bg: 47 165 204;
+  --toast-success-bg: 41 169 91;
+  --toast-error-bg: 230 0 0;
+  --toast-warning-bg: 245 158 11;
+  --toast-fg: 255 255 255;
+}
+
+/* Dark mode: force input background (and autofill) so it’s visible on Example page and elsewhere */
+.dark .tipico-text-field__input,
+.dark input.tipico-text-field__input {
+  background-color: rgb(var(--input-bg)) !important;
+}
+
+.dark .tipico-text-field__input:-webkit-autofill,
+.dark .tipico-text-field__input:-webkit-autofill:hover,
+.dark .tipico-text-field__input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgb(var(--input-fg));
+  -webkit-box-shadow: 0 0 0 1000px rgb(var(--input-bg)) inset !important;
+  box-shadow: 0 0 0 1000px rgb(var(--input-bg)) inset !important;
 }

@@ -1,3 +1,4 @@
+import '../src/styles/fonts.css';
 import '../src/styles/tokens.primitives.css';
 import '../src/styles/tokens.light.css';
 import '../src/styles/tokens.dark.css';
@@ -18,10 +19,9 @@ const preview: Preview = {
   },
   globalTypes: {
     theme: {
-      name: 'Theme',
       description: 'Global theme for components',
-      defaultValue: 'light',
       toolbar: {
+        title: 'Theme',
         icon: 'circlehollow',
         items: [
           { value: 'light', title: 'Light' },
@@ -31,9 +31,12 @@ const preview: Preview = {
       },
     },
   },
+  initialGlobals: {
+    theme: 'light',
+  },
   decorators: [
     (Story, context) => {
-      const theme = context.globals.theme;
+      const theme = context.globals?.theme ?? 'light';
       return (
         <div
           className={theme === 'dark' ? 'dark' : undefined}
@@ -43,6 +46,7 @@ const preview: Preview = {
             color: 'rgb(var(--fg))',
             padding: 24,
             boxSizing: 'border-box',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
           }}
         >
           <Story />

@@ -1,0 +1,83 @@
+/* Toast – single toast bar; stack handles position + animation */
+
+.tipico-toast {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  color: rgb(var(--toast-fg));
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  font-weight: var(--font-medium);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.15);
+  min-width: 0;
+}
+
+.tipico-toast__icon {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: rgb(var(--toast-fg));
+}
+
+.tipico-toast__icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+.tipico-toast__message {
+  flex: 1;
+  min-width: 0;
+}
+
+.tipico-toast__close {
+  flex-shrink: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: rgb(var(--toast-fg));
+  opacity: 0.85;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.15s ease;
+}
+
+.tipico-toast__close:hover {
+  opacity: 1;
+}
+
+.tipico-toast__close:focus-visible {
+  outline: 2px solid rgb(var(--toast-fg));
+  outline-offset: 2px;
+}
+
+/* Variants */
+.tipico-toast--neutral {
+  background-color: rgb(var(--toast-neutral-bg));
+}
+
+.tipico-toast--info {
+  background-color: rgb(var(--toast-info-bg));
+}
+
+.tipico-toast--success {
+  background-color: rgb(var(--toast-success-bg));
+}
+
+.tipico-toast--error {
+  background-color: rgb(var(--toast-error-bg));
+}
+
+.tipico-toast--warning {
+  background-color: rgb(var(--toast-warning-bg));
+}
