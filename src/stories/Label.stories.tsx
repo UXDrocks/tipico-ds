@@ -118,15 +118,11 @@ export const Playground: Story = {
   },
 };
 
-type WithIconArgs = {
-  showLeftIcon: boolean;
-  leftIcon: IconOption;
-  showRightIcon: boolean;
-  rightIcon: IconOption;
-};
-
-export const WithIcon: Story<WithIconArgs> = {
+export const WithIcon: Story = {
   args: {
+    variant: 'info',
+    active: true,
+    children: 'Label with icons',
     showLeftIcon: true,
     leftIcon: 'XCircle',
     showRightIcon: true,
@@ -146,7 +142,17 @@ export const WithIcon: Story<WithIconArgs> = {
       description: 'Icon rechts',
     },
   },
-  render: ({ showLeftIcon, leftIcon, showRightIcon, rightIcon }) => {
+  render: (args) => {
+    const {
+      variant,
+      active,
+      children,
+      showLeftIcon,
+      leftIcon,
+      showRightIcon,
+      rightIcon,
+    } = args as any;
+
     const left = iconFromOption(leftIcon, 12);
     const right = iconFromOption(rightIcon, 12);
 
@@ -160,12 +166,12 @@ export const WithIcon: Story<WithIconArgs> = {
         }}
       >
         <Label
-          variant="info"
-          active
+          variant={variant}
+          active={active}
           iconLeft={showLeftIcon ? left : undefined}
           iconRight={showRightIcon ? right : undefined}
         >
-          Label with icons
+          {children}
         </Label>
       </div>
     );
