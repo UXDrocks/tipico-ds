@@ -38,26 +38,24 @@ export default meta;
 
 type Story = StoryObj<typeof Toast>;
 
-/** Single toast bar (neutral). Usually used inside ToastStack. */
-/** All five variants in a static stack (overview) */
-export const Overview: StoryObj<typeof ToastStack> = {
-  render: function AllVariantsStory() {
-    const items = [
-      { id: '1', variant: 'neutral' as const, message: 'The action was successfully done' },
-      { id: '2', variant: 'info' as const, message: 'The action was successfully done' },
-      { id: '3', variant: 'success' as const, message: 'The action was successfully done' },
-      { id: '4', variant: 'error' as const, message: 'The action was successfully done' },
-      { id: '5', variant: 'warning' as const, message: 'The action was successfully done' },
-    ];
-    const [toasts, setToasts] = useState(items);
-    return (
-      <ToastStack
-        toasts={toasts}
-        onDismiss={(id) => setToasts((prev) => prev.filter((t) => t.id !== id))}
-        max={10}
-      />
-    );
-  },
+/** Static preview of all variants without fixed positioning. */
+export const Overview: Story = {
+  render: () => (
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'column',
+        gap: 'var(--space-3)',
+        maxWidth: '28rem',
+      }}
+    >
+      <Toast variant="neutral" message="The action was successfully done" showIcon />
+      <Toast variant="info" message="The action was successfully done" showIcon />
+      <Toast variant="success" message="The action was successfully done" showIcon />
+      <Toast variant="error" message="The action was successfully done" showIcon />
+      <Toast variant="warning" message="The action was successfully done" showIcon />
+    </div>
+  ),
 };
 
 export const Default: Story = {
