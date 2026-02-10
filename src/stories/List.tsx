@@ -35,7 +35,7 @@ export const List: React.FC<ListProps> = ({
   meta,
   leading,
   showLeading = true,
-  showDescription = true,
+  showDescription = false,
   showMeta = true,
   showChevron = true,
   filled = false,

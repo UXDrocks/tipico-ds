@@ -55,7 +55,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <span className="tipico-header__icon-circle">
               <span className="tipico-header__icon" aria-hidden>
-                <XCircleIcon size={16} />
+                <XCircleIcon size={32} />
               </span>
             </span>
           </button>
@@ -77,7 +77,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <span className="tipico-header__icon-circle">
               <span className="tipico-header__icon" aria-hidden>
-                <XCircleIcon size={16} />
+                <XCircleIcon size={32} />
               </span>
             </span>
           </button>

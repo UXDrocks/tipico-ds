@@ -5,10 +5,12 @@ import { Header } from './Header';
 import { Card } from './Card';
 import { List } from './List';
 import { Button } from './Button';
+import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon, CheckCircleIcon } from './icons';
+import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
 
 const meta: Meta = {
-  title: 'Screens/Account Verification',
+  title: 'Screens/2. Account Verification',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -189,26 +191,10 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
 export const Overview: Story = {
   render: () => {
     return (
-      <div
-        style={{
-          minHeight: '100vh',
-          background: 'rgb(var(--bg))',
-          color: 'rgb(var(--fg))',
-          fontFamily: 'var(--font-sans)',
-        }}
-      >
+      <div style={screenRootStyles}>
         <Header title="Kontoverifizierung" showBackButton showCloseButton />
 
-        <main
-          style={{
-            maxWidth: '48rem',
-            margin: '0 auto',
-            padding: 'var(--space-6) max(var(--space-4), 1rem) var(--space-8)',
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 'var(--space-4)',
-          }}
-        >
+        <main style={screenMainStyles}>
           <section>
             <p
               style={{
@@ -269,6 +255,12 @@ export const Overview: Story = {
             />
           </section>
         </main>
+
+        <BottomNavigation
+          items={defaultBottomNavItems}
+          activeId="profile"
+          onSelect={() => {}}
+        />
       </div>
     );
   },

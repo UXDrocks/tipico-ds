@@ -17,11 +17,13 @@ import { Header } from './Header';
 import { Pill } from './Pill';
 import { Label } from './Label';
 import { List } from './List';
+import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
 import { Dialog } from './Dialog';
+import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
 
 const meta: Meta = {
-  title: 'Screens/Example Page',
+  title: 'Screens/1. Example Page',
   parameters: {
     layout: 'fullscreen',
     docs: {
@@ -49,26 +51,18 @@ function ExamplePageContent() {
   const [search, setSearch] = useState('');
   const [alertOpen, setAlertOpen] = useState(true);
   const [dialogOpen, setDialogOpen] = useState(false);
+  const [activeBottomNav, setActiveBottomNav] = useState('home');
   const { addToast } = useToast();
 
   return (
-    <div
-      style={{
-        minHeight: '100vh',
-        background: 'rgb(var(--bg))',
-        color: 'rgb(var(--fg))',
-        fontFamily: 'var(--font-sans)',
-      }}
-    >
+    <div style={screenRootStyles}>
       {/* Page header using shared Header component */}
       <Header title="Example page" />
 
-      {/* Main: same max-width as other screens (28rem), shared padding */}
+      {/* Main content: full width until 640px, with fixed padding */}
       <main
         style={{
-          maxWidth: '48rem',
-          margin: '0 auto',
-          padding: 'var(--space-6) max(var(--space-4), 1rem) var(--space-8)',
+          ...screenMainStyles,
           minHeight: '50vh',
         }}
       >
@@ -97,7 +91,7 @@ function ExamplePageContent() {
         </p>
 
         {/* Top navigation: TabBar preview */}
-        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="tabs-heading">
+        <section aria-labelledby="tabs-heading">
           <h2
             id="tabs-heading"
             style={{
@@ -129,7 +123,7 @@ function ExamplePageContent() {
         </section>
 
         {/* List items */}
-        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="list-heading">
+        <section aria-labelledby="list-heading">
           <h2
             id="list-heading"
             style={{
@@ -144,16 +138,11 @@ function ExamplePageContent() {
             List items
           </h2>
           <Card variant="plain">
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 'var(--space-3)',
-              }}
-            >
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List
                 title="Sports limits (optional)"
                 description="Configure optional deposit limits for your sports account."
+                showDescription
                 meta="Info"
                 leading={
                   <div className="tipico-list__leading-icons">
@@ -163,11 +152,12 @@ function ExamplePageContent() {
                   </div>
                 }
                 filled
-                bordered
+                bordered={false}
               />
               <List
                 title="Germany vs. Spain"
                 description="Live betting and upcoming markets."
+                showDescription
                 meta="Details"
                 leading={
                   <div className="tipico-list__leading-icons">
@@ -177,11 +167,12 @@ function ExamplePageContent() {
                   </div>
                 }
                 filled
-                bordered
+                bordered={false}
               />
               <List
                 title="Account verification"
                 description="Verify your identity to unlock withdrawals."
+                showDescription
                 meta="Pending"
                 leading={
                   <div className="tipico-list__leading-icons">
@@ -191,11 +182,12 @@ function ExamplePageContent() {
                   </div>
                 }
                 filled
-                bordered
+                bordered={false}
               />
               <List
                 title="Responsible gaming"
                 description="Set deposit limits and self-exclusion options."
+                showDescription
                 meta="Settings"
                 leading={
                   <div className="tipico-list__leading-icons">
@@ -205,7 +197,7 @@ function ExamplePageContent() {
                   </div>
                 }
                 filled
-                bordered
+                bordered={false}
               />
             </div>
           </Card>
@@ -213,31 +205,26 @@ function ExamplePageContent() {
 
         {/* Alert */}
         {alertOpen && (
-          <div style={{ marginBottom: 'var(--space-6)' }}>
-            <Alert
-              variant="info"
-              title="Your session is active"
-              onClose={() => setAlertOpen(false)}
-              link={{ href: '#', label: 'View account' }}
-            >
-              You can continue placing bets. Session expires in 30 minutes.
-            </Alert>
-          </div>
+          <Alert
+            variant="info"
+            title="Your session is active"
+            onClose={() => setAlertOpen(false)}
+            link={{ href: '#', label: 'View account' }}
+          >
+            You can continue placing bets. Session expires in 30 minutes.
+          </Alert>
         )}
 
         {/* Card: search + actions – content card on bg-surface uses bg-card */}
-        <section
-          style={{
-            padding: 'var(--space-6)',
-            background: 'rgb(var(--bg-card))',
-            borderRadius: 'var(--radius-card)',
-            border: '1px solid rgb(var(--border-subtile))',
-            marginBottom: 'var(--space-6)',
-            boxSizing: 'border-box',
-            overflow: 'hidden',
-          }}
-          aria-labelledby="search-heading"
-        >
+        <section aria-labelledby="search-heading">
+          <Card
+            variant="bordered"
+            style={{
+              padding: 'var(--space-6)',
+              boxSizing: 'border-box',
+              overflow: 'hidden',
+            }}
+          >
           <h2
             id="search-heading"
             style={{
@@ -278,10 +265,11 @@ function ExamplePageContent() {
               <Button variant="tertiary">Filters</Button>
             </div>
           </div>
+          </Card>
         </section>
 
         {/* Alerts row */}
-        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="alerts-heading">
+        <section aria-labelledby="alerts-heading">
           <h2
             id="alerts-heading"
             style={{
@@ -309,10 +297,7 @@ function ExamplePageContent() {
         </section>
 
         {/* Form card: Article + InputField + Button */}
-        <section
-          style={{ marginBottom: 'var(--space-6)' }}
-          aria-labelledby="limits-heading"
-        >
+        <section aria-labelledby="limits-heading">
           <Card variant="bordered">
             <Article
               title="Sports limits (optional)"
@@ -337,7 +322,7 @@ function ExamplePageContent() {
         </section>
 
         {/* Status tags: Pill + Label */}
-        <section style={{ marginBottom: 'var(--space-6)' }} aria-labelledby="tags-heading">
+        <section aria-labelledby="tags-heading">
           <h2
             id="tags-heading"
             style={{
@@ -401,10 +386,7 @@ function ExamplePageContent() {
         </section>
 
         {/* Dialog demo */}
-        <section
-          style={{ marginBottom: 'var(--space-6)' }}
-          aria-labelledby="dialog-heading"
-        >
+        <section aria-labelledby="dialog-heading">
           <h2
             id="dialog-heading"
             style={{
@@ -475,6 +457,12 @@ function ExamplePageContent() {
           </div>
         </section>
       </main>
+
+      <BottomNavigation
+        items={defaultBottomNavItems}
+        activeId={activeBottomNav}
+        onSelect={setActiveBottomNav}
+      />
     </div>
   );
 }
