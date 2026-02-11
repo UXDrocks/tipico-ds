@@ -19,6 +19,13 @@ Reusable content container built on the \`bg-card\` token.
 - **plain**: simple card surface (no shadow, transparent border).
 - **shadow**: subtle elevation using alpha black tokens.
 - **bordered**: flat card with \`border-standard\` outline.
+- **promoted**: highlighted card with a bold, black-and-yellow striped border.
+
+### Usage
+
+- Use **promoted** only for special or recommended content (e.g. "Top pick", "Recommended", "Limited offer").
+- Avoid stacking multiple promoted cards directly next to each other — prefer a single promoted option per group.
+- On screens like account verification or promotions, use **promoted** for the primary or most relevant choice.
 
 Use cards to group related content on \`bg-surface\` backgrounds (e.g. forms, summaries).
         `.trim(),
@@ -28,7 +35,7 @@ Use cards to group related content on \`bg-surface\` backgrounds (e.g. forms, su
   argTypes: {
     variant: {
       control: 'select',
-      options: ['plain', 'shadow', 'bordered'],
+      options: ['plain', 'shadow', 'bordered', 'promoted'],
     },
   },
 } satisfies Meta<typeof Card>;

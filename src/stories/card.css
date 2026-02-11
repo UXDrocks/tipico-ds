@@ -26,3 +26,18 @@
   box-shadow: none;
 }
 
+.tipico-card--promoted {
+  /* Highlighted card with a bold, striped border for promoted content */
+  border: 2px solid transparent;
+  box-shadow: none;
+  /* Keep the card surface using bg-card, but draw a striped border using border-image */
+  border-image: repeating-linear-gradient(
+      45deg,
+      rgb(var(--border-black)) 0,
+      rgb(var(--border-black)) 6px,
+      rgb(var(--signals-bg-warning)) 6px,
+      rgb(var(--signals-bg-warning)) 12px
+    )
+    1;
+}
+

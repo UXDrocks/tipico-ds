@@ -2,7 +2,7 @@ import React from 'react';
 
 import './card.css';
 
-export type CardVariant = 'plain' | 'shadow' | 'bordered';
+export type CardVariant = 'plain' | 'shadow' | 'bordered' | 'promoted';
 
 export interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Visual style of the card */
