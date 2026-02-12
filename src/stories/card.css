@@ -27,17 +27,18 @@
 }
 
 .tipico-card--promoted {
-  /* Highlighted card with a bold, striped border for promoted content */
-  border: 2px solid transparent;
+  /* 2px dotted border with alternating black and yellow look */
+  border: 2px dotted transparent;
   box-shadow: none;
-  /* Keep the card surface using bg-card, but draw a striped border using border-image */
+  border-radius: var(--radius-card);
+
+  /* Create an alternating black/yellow pattern along the border */
   border-image: repeating-linear-gradient(
-      45deg,
-      rgb(var(--border-black)) 0,
-      rgb(var(--border-black)) 6px,
-      rgb(var(--signals-bg-warning)) 6px,
-      rgb(var(--signals-bg-warning)) 12px
+      90deg,
+      #000 0 4px,
+      #000 4px 6px,
+      #ffd600 6px 10px,
+      #ffd600 10px 12px
     )
     1;
 }
-
