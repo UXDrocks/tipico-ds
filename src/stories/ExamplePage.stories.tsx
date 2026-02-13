@@ -20,7 +20,13 @@ import { List } from './List';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
 import { Dialog } from './Dialog';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenMainStyles,
+  screenPageTitleStyles,
+  screenRootStyles,
+  screenSectionTitleStyles,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/1. Example Page',
@@ -66,25 +72,14 @@ function ExamplePageContent() {
           minHeight: '50vh',
         }}
       >
-        <h1
-          style={{
-            fontSize: 'var(--font-size-2xl)',
-            lineHeight: 'var(--leading-2xl)',
-            fontWeight: 'var(--font-bold)',
-            marginTop: 0,
-            marginBottom: 'var(--space-2)',
-            color: 'rgb(var(--fg))',
-          }}
-        >
-          Example page
-        </h1>
+        <h1 style={screenPageTitleStyles}>Example page</h1>
         <p
           style={{
-            fontSize: 'var(--font-size-base)',
-            lineHeight: 'var(--leading-base)',
-            color: 'rgb(var(--fg))',
+            fontSize: 'var(--text-base)',
+            lineHeight: 'var(--text-base--line-height)',
+            color: 'rgb(var(--text-subtile))',
+            margin: 0,
             marginBottom: 'var(--space-6)',
-            opacity: 0.85,
           }}
         >
           This layout uses Alert, TextField, Button, Link, and TabBar from the design system.
@@ -92,17 +87,7 @@ function ExamplePageContent() {
 
         {/* Top navigation: TabBar preview */}
         <section aria-labelledby="tabs-heading">
-          <h2
-            id="tabs-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="tabs-heading" style={screenSectionTitleStyles}>
             Main navigation
           </h2>
           <div
@@ -124,17 +109,7 @@ function ExamplePageContent() {
 
         {/* List items */}
         <section aria-labelledby="list-heading">
-          <h2
-            id="list-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="list-heading" style={screenSectionTitleStyles}>
             List items
           </h2>
           <Card variant="plain">
@@ -225,17 +200,7 @@ function ExamplePageContent() {
               overflow: 'hidden',
             }}
           >
-          <h2
-            id="search-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="search-heading" style={screenSectionTitleStyles}>
             Search & actions
           </h2>
           <div
@@ -270,17 +235,7 @@ function ExamplePageContent() {
 
         {/* Alerts row */}
         <section aria-labelledby="alerts-heading">
-          <h2
-            id="alerts-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="alerts-heading" style={screenSectionTitleStyles}>
             Alert variants
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)' }}>
@@ -323,17 +278,7 @@ function ExamplePageContent() {
 
         {/* Status tags: Pill + Label */}
         <section aria-labelledby="tags-heading">
-          <h2
-            id="tags-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="tags-heading" style={screenSectionTitleStyles}>
             Status tags
           </h2>
           <div
@@ -387,17 +332,7 @@ function ExamplePageContent() {
 
         {/* Dialog demo */}
         <section aria-labelledby="dialog-heading">
-          <h2
-            id="dialog-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="dialog-heading" style={screenSectionTitleStyles}>
             Dialog
           </h2>
           <Button variant="secondary" onClick={() => setDialogOpen(true)}>
@@ -423,17 +358,7 @@ function ExamplePageContent() {
 
         {/* Buttons + link */}
         <section aria-labelledby="buttons-heading">
-          <h2
-            id="buttons-heading"
-            style={{
-              fontSize: 'var(--font-size-lg)',
-              lineHeight: 'var(--leading-lg)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-4)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
+          <h2 id="buttons-heading" style={screenSectionTitleStyles}>
             Buttons & link
           </h2>
           <div
@@ -449,7 +374,7 @@ function ExamplePageContent() {
             <Button variant="tertiary">Tertiary</Button>
             <Button variant="destructive">Destructive</Button>
             <Button variant="secondary" onClick={() => addToast({ variant: 'success', message: 'The action was successfully done.' })}>Show toast</Button>
-            <span style={{ paddingLeft: 'var(--space-2)', borderLeft: '1px solid rgb(var(--border))', marginLeft: 'var(--space-1)' }}>
+            <span style={{ paddingLeft: 'var(--space-2)', borderLeft: '1px solid rgb(var(--border-subtile))', marginLeft: 'var(--space-1)' }}>
               <Link href="#" style={{ padding: 'var(--space-2) 0', display: 'inline-block' }}>
                 Text link
               </Link>

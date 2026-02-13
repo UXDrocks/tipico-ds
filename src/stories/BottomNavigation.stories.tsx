@@ -3,7 +3,12 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { BottomNavigation, type BottomNavigationItem } from './BottomNavigation';
 import { HomeIcon, SearchIcon, StarIcon, BellIcon, UserIcon } from './icons';
-import { screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  screenIntroStyles,
+  screenMainStyles,
+  screenPageTitleStyles,
+  screenRootStyles,
+} from './screen-layout';
 
 const meta: Meta<typeof BottomNavigation> = {
   title: 'Components/BottomNavigation',
@@ -48,26 +53,10 @@ export const Overview: Story = {
     return (
       <div style={screenRootStyles}>
         <main style={{ ...screenMainStyles, flex: '1 1 auto' }}>
-          <h1
-            style={{
-              fontSize: 'var(--font-size-xl)',
-              lineHeight: 'var(--leading-xl)',
-              fontWeight: 'var(--font-semibold)',
-              marginTop: 0,
-              marginBottom: 'var(--space-2)',
-            }}
-          >
+          <h1 style={{ ...screenPageTitleStyles, marginBottom: 'var(--space-2)' }}>
             Bottom navigation
           </h1>
-          <p
-            style={{
-              fontSize: 'var(--font-size-sm)',
-              lineHeight: 'var(--leading-sm)',
-              color: 'rgb(var(--text-subtile))',
-              margin: 0,
-              marginBottom: 'var(--space-6)',
-            }}
-          >
+          <p style={{ ...screenIntroStyles, marginBottom: 'var(--space-6)' }}>
             Resize the viewport to mobile to see the sticky, blurred background behaviour.
           </p>
         </main>

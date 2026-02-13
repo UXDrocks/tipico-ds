@@ -7,7 +7,12 @@ import { List } from './List';
 import { Button } from './Button';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionGap,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/4. Profile',
@@ -43,13 +48,14 @@ export const Overview: Story = {
             flexDirection: 'column',
             alignItems: 'center',
             gap: 'var(--space-4)',
+            marginBottom: screenSectionGap,
           }}
         >
           <div
             style={{
               width: 80,
               height: 80,
-              borderRadius: '999px',
+              borderRadius: 'var(--radius-2xl)',
               background: 'rgb(var(--bg-muted))',
               border: '2px solid rgb(var(--border-subtile))',
             }}
@@ -61,6 +67,7 @@ export const Overview: Story = {
                 fontSize: 'var(--text-xl)',
                 lineHeight: 'var(--text-xl--line-height)',
                 fontWeight: 'var(--font-semibold)',
+                color: 'rgb(var(--fg))',
                 marginBottom: 'var(--space-1)',
               }}
             >
