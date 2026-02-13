@@ -90,16 +90,16 @@
   border-color: rgb(var(--signals-bg-negative));
 }
 
-/* Warning */
+/* Warning – font colors aligned with Pill (black on filled, warning-700 on subtle) */
 .tipico-label--warning.tipico-label--active {
   background-color: rgb(var(--signals-bg-warning));
-  color: rgb(var(--signals-text-cta-warning));
+  color: rgb(var(--base-black));
   border-color: transparent;
 }
 
 .tipico-label--warning.tipico-label--inactive {
   background-color: rgb(var(--signals-bg-warning-subtile));
-  color: rgb(var(--signals-text-warning));
-  border-color: rgb(var(--signals-bg-warning));
+  color: rgb(var(--signals-warning-700));
+  border-color: rgb(var(--signals-warning-100));
 }
 
