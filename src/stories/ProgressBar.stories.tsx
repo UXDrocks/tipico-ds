@@ -10,7 +10,7 @@ const meta: Meta<typeof ProgressBar> = {
     docs: {
       description: {
         component:
-          'Horizontal progress bar with semantic color variants (neutral, positive, info, negative, warning). The bar expands to full width of the preview by default.',
+          'Horizontal progress bar with semantic color variants (neutral, positive, info, negative, warning). Use **appearance** `solid` for a plain filled background, or `gradient` (default) for a gradient fill. The bar expands to full width of the preview by default.',
       },
     },
   },
@@ -21,6 +21,10 @@ const meta: Meta<typeof ProgressBar> = {
     variant: {
       control: 'select',
       options: ['neutral', 'positive', 'info', 'negative', 'warning'],
+    },
+    appearance: {
+      control: 'radio',
+      options: ['gradient', 'solid'],
     },
   },
 };
@@ -52,6 +56,26 @@ export const Playground: Story = {
   args: {
     value: 40,
     variant: 'info',
+  },
+  render: (args) => (
+    <div
+      style={{
+        width: '100%',
+        maxWidth: '100%',
+        padding: 'var(--space-8)',
+        boxSizing: 'border-box',
+      }}
+    >
+      <ProgressBar {...args} />
+    </div>
+  ),
+};
+
+export const SolidFill: Story = {
+  args: {
+    value: 65,
+    variant: 'positive',
+    appearance: 'solid',
   },
   render: (args) => (
     <div
