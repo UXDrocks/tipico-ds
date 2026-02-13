@@ -58,8 +58,7 @@ export const Overview: Story = {
         <main
           style={{
             flex: '1 1 auto',
-            maxWidth: '48rem',
-            margin: '0 auto',
+            width: '100%',
             padding: 'var(--space-6) max(var(--space-4), 1rem)',
           }}
         >

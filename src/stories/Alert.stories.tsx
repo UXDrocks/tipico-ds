@@ -68,8 +68,7 @@ export const Overview: Story = {
         display: 'flex',
         flexDirection: 'column',
         gap: 'var(--space-3)',
-        minWidth: 320,
-        maxWidth: 480,
+        width: '100%',
       }}
     >
       <Alert variant="neutral" title="Neutral">
@@ -209,7 +208,7 @@ export const WithIcon: Story<WithIconArgs> = {
     return (
       <div
         style={{
-          maxWidth: 480,
+          width: '100%',
         }}
       >
         <Alert

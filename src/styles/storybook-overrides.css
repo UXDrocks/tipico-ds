@@ -3,3 +3,20 @@
   padding: 0 !important;
 }
 
+/* Force preview to use full canvas width (fixes "centered" layout constraining width) */
+body,
+#root,
+[id^='storybook-root'],
+.sb-main-centered .sb-show-main,
+.sb-main-padded .sb-show-main,
+[class*='sb-main'] .sb-show-main {
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box;
+}
+
+/* Prevent horizontal scroll: clip overflow at the preview root */
+body {
+  overflow-x: hidden;
+}
+

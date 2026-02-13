@@ -42,8 +42,7 @@ export const Overview: Story = {
   render: (args) => (
     <div
       style={{
-        minWidth: 320,
-        maxWidth: 480,
+        width: '100%',
       }}
     >
       <Card {...args}>
