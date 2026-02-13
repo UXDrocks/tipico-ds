@@ -48,8 +48,7 @@ export const Overview: Story = {
       style={{
         display: 'grid',
         gap: 'var(--space-4)',
-        minWidth: 320,
-        maxWidth: 480,
+        width: '100%',
       }}
     >
       <InputField label="Default" placeholder="Enter value" />

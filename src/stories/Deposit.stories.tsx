@@ -9,7 +9,14 @@ import { InputField } from './InputField';
 import { Article } from './Article';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenFootnoteStyles,
+  screenIntroStyles,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionGap,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/5. Deposit',
@@ -39,16 +46,8 @@ export const Overview: Story = {
       <Header title="Deposit" showBackButton />
 
       <main style={mainStyles}>
-        <section>
-          <p
-            style={{
-              fontSize: 'var(--text-sm)',
-              lineHeight: 'var(--text-sm--line-height)',
-              color: 'rgb(var(--text-standard))',
-              margin: 0,
-              marginBottom: 'var(--space-3)',
-            }}
-          >
+        <section style={{ marginBottom: screenSectionGap }}>
+          <p style={{ ...screenIntroStyles, marginBottom: 'var(--space-3)' }}>
             Choose a payment method and enter the amount.
           </p>
           <Card variant="plain">
@@ -110,11 +109,10 @@ export const Overview: Story = {
             display: 'flex',
             alignItems: 'center',
             gap: 'var(--space-2)',
-            fontSize: 'var(--text-sm)',
-            color: 'rgb(var(--text-subtile))',
+            ...screenFootnoteStyles,
           }}
         >
-          <AlertCircleIcon size={18} />
+          <AlertCircleIcon size={18} aria-hidden />
           <span>Deposits are processed within 24 hours. No fees for card payments.</span>
         </div>
       </main>

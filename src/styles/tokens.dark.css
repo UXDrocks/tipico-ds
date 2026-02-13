@@ -1,3 +1,4 @@
+/* Optional legacy tokens; app uses theme.css .dark for --bg, --fg. */
 .dark {
   --bg-base: rgb(20 21 22);
   --bg-base-2: rgb(30 33 34);

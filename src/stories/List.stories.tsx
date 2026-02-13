@@ -80,8 +80,7 @@ export const Overview: Story<ListStoryArgs> = {
     return (
       <div
         style={{
-          minWidth: 320,
-          maxWidth: 480,
+          width: '100%',
           display: 'flex',
           flexDirection: 'column',
           gap: 'var(--space-3)',
@@ -127,8 +126,7 @@ export const Playground: Story<ListStoryArgs> = {
     return (
       <div
         style={{
-          minWidth: 320,
-          maxWidth: 480,
+          width: '100%',
         }}
       >
         <List {...(rest as any)} leading={leading} />

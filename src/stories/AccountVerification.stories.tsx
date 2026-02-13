@@ -7,7 +7,13 @@ import { List } from './List';
 import { Button } from './Button';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon, CheckCircleIcon } from './icons';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenIntroStyles,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionGap,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/2. Account Verification',
@@ -110,6 +116,7 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
             alignItems: 'center',
             justifyContent: 'space-between',
             gap: 'var(--space-3)',
+            minWidth: 0,
           }}
         >
           <div
@@ -118,6 +125,8 @@ const VerificationCard: React.FC<VerificationCardProps> = ({
               lineHeight: 'var(--text-xl--line-height)',
               fontWeight: 'var(--font-semibold)',
               letterSpacing: '-0.02em',
+              color: 'rgb(var(--fg))',
+              minWidth: 0,
             }}
           >
             {brand}
@@ -195,15 +204,8 @@ export const Overview: Story = {
         <Header title="Kontoverifizierung" showBackButton showCloseButton />
 
         <main style={screenMainStyles}>
-          <section>
-            <p
-              style={{
-                fontSize: 'var(--text-sm)',
-                lineHeight: 'var(--text-sm--line-height)',
-                color: 'rgb(var(--text-standard))',
-                margin: 0,
-              }}
-            >
+          <section style={{ marginBottom: screenSectionGap }}>
+            <p style={screenIntroStyles}>
               Deine Daten sind bei uns geschützt und werden nur zu
               Verifizierungszwecken genutzt. Wähle eine Methode:
             </p>

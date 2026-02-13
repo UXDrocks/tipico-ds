@@ -58,3 +58,65 @@
   );
 }
 
+/* Dark mode: gradient ends fit dark theme (darker shades instead of light subtile) */
+.dark .tipico-progress--neutral .tipico-progress__fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--signals-bg-neutral)) 0%,
+    rgb(var(--base-neutrals-800)) 100%
+  );
+}
+
+.dark .tipico-progress--positive .tipico-progress__fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--signals-bg-positive)) 0%,
+    rgb(var(--signals-positive-800)) 100%
+  );
+}
+
+.dark .tipico-progress--info .tipico-progress__fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--signals-bg-info)) 0%,
+    rgb(var(--signals-info-800)) 100%
+  );
+}
+
+.dark .tipico-progress--negative .tipico-progress__fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--signals-bg-negative)) 0%,
+    rgb(var(--signals-negative-800)) 100%
+  );
+}
+
+.dark .tipico-progress--warning .tipico-progress__fill {
+  background: linear-gradient(
+    90deg,
+    rgb(var(--signals-bg-warning)) 0%,
+    rgb(var(--signals-warning-800)) 100%
+  );
+}
+
+/* Solid fill (no gradient) */
+.tipico-progress--solid.tipico-progress--neutral .tipico-progress__fill {
+  background: rgb(var(--signals-bg-neutral));
+}
+
+.tipico-progress--solid.tipico-progress--positive .tipico-progress__fill {
+  background: rgb(var(--signals-bg-positive));
+}
+
+.tipico-progress--solid.tipico-progress--info .tipico-progress__fill {
+  background: rgb(var(--signals-bg-info));
+}
+
+.tipico-progress--solid.tipico-progress--negative .tipico-progress__fill {
+  background: rgb(var(--signals-bg-negative));
+}
+
+.tipico-progress--solid.tipico-progress--warning .tipico-progress__fill {
+  background: rgb(var(--signals-bg-warning));
+}
+

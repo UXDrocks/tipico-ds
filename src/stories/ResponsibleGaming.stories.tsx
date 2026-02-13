@@ -9,7 +9,13 @@ import { Article } from './Article';
 import { Alert } from './Alert';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionGap,
+  screenSectionTitleStyles,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/7. Responsible Gaming',
@@ -108,18 +114,8 @@ export const Overview: Story = {
           </div>
         </Card>
 
-        <section>
-          <h2
-            style={{
-              fontSize: 'var(--text-sm)',
-              fontWeight: 'var(--font-semibold)',
-              margin: 0,
-              marginBottom: 'var(--space-3)',
-              color: 'rgb(var(--fg))',
-            }}
-          >
-            Support organisations
-          </h2>
+        <section style={{ marginTop: screenSectionGap }}>
+          <h2 style={screenSectionTitleStyles}>Support organisations</h2>
           <Card variant="plain">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List

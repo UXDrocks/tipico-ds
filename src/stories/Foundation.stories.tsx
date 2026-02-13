@@ -14,7 +14,7 @@ const meta: Meta = {
     docs: {
       description: {
         component:
-          'Global design tokens and styling overview. Update this page whenever you add or change tokens in `theme.css` or `tokens.primitives.css`.',
+          'Global design tokens and styling overview. Update this page whenever you add or change tokens in `theme.css` or `tokens.primitives.css`.\\n\\nUse the Storybook toolbar to switch **Theme** (light/dark) and **Width** (Tailwind breakpoints) when reviewing components and screens.',
       },
     },
   },

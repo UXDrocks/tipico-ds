@@ -42,7 +42,7 @@ export const Overview: Story = {
       style={{
         display: 'grid',
         gap: 'var(--space-3)',
-        width: 393,
+        width: '100%',
         border: '1px solid rgb(var(--border-subtile))',
         borderRadius: 'var(--radius-lg)',
         overflow: 'hidden',

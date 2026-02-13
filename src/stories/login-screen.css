@@ -7,6 +7,7 @@
   flex-direction: column;
   background: rgb(var(--bg));
   color: rgb(var(--fg));
+  font-family: var(--font-sans);
 }
 
 /* Same max-width and padding as other screens (Example Page, Account Verification) */

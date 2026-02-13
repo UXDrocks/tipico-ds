@@ -39,8 +39,7 @@ export const Overview: Story = {
   render: () => (
     <div
       style={{
-        minWidth: 320,
-        maxWidth: 480,
+        width: '100%',
         display: 'flex',
         flexDirection: 'column',
         gap: 'var(--space-6)',
@@ -82,8 +81,7 @@ export const Playground: Story = {
   render: (args) => (
     <div
       style={{
-        minWidth: 320,
-        maxWidth: 480,
+        width: '100%',
       }}
     >
       <Article {...args} />

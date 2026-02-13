@@ -7,7 +7,13 @@ import { List } from './List';
 import { Alert } from './Alert';
 import { BottomNavigation } from './BottomNavigation';
 import { AlertCircleIcon } from './icons';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenFootnoteStyles,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionGap,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/6. Notifications',
@@ -37,11 +43,13 @@ export const Overview: Story = {
       <Header title="Notifications" showBackButton />
 
       <main style={mainStyles}>
-        <Alert variant="info" title="Manage preferences">
-          You can turn push and email notifications on or off for each category below.
-        </Alert>
+        <div style={{ marginBottom: screenSectionGap }}>
+          <Alert variant="info" title="Manage preferences">
+            You can turn push and email notifications on or off for each category below.
+          </Alert>
+        </div>
 
-        <section>
+        <section style={{ marginBottom: screenSectionGap }}>
           <Card variant="plain">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List
@@ -87,14 +95,7 @@ export const Overview: Story = {
           </Card>
         </section>
 
-        <p
-          style={{
-            fontSize: 'var(--text-sm)',
-            lineHeight: 'var(--text-sm--line-height)',
-            color: 'rgb(var(--text-subtile))',
-            margin: 0,
-          }}
-        >
+        <p style={screenFootnoteStyles}>
           Push notifications require permission in your device settings.
         </p>
       </main>

@@ -1,3 +1,4 @@
+/* Optional legacy tokens; app and Storybook use theme.css + tokens.semantic.css for --bg, --fg, etc. */
 :root {
   /* Backgrounds */
   --bg-base: rgb(var(--color-neutral-50));

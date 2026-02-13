@@ -4,11 +4,15 @@ import './progressbar.css';
 
 export type ProgressBarVariant = 'neutral' | 'positive' | 'info' | 'negative' | 'warning';
 
+export type ProgressBarAppearance = 'gradient' | 'solid';
+
 export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Current progress value (0–100) */
   value: number;
   /** Color variant */
   variant?: ProgressBarVariant;
+  /** Fill style: gradient (default) or plain solid background */
+  appearance?: ProgressBarAppearance;
 }
 
 /**
@@ -19,6 +23,7 @@ export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
 export const ProgressBar: React.FC<ProgressBarProps> = ({
   value,
   variant = 'neutral',
+  appearance = 'gradient',
   className = '',
   ...rest
 }) => {
@@ -26,7 +31,12 @@ export const ProgressBar: React.FC<ProgressBarProps> = ({
 
   return (
     <div
-      className={['tipico-progress', `tipico-progress--${variant}`, className]
+      className={[
+        'tipico-progress',
+        `tipico-progress--${variant}`,
+        appearance === 'solid' && 'tipico-progress--solid',
+        className,
+      ]
         .filter(Boolean)
         .join(' ')}
       {...rest}

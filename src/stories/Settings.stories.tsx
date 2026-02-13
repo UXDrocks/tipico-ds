@@ -7,7 +7,14 @@ import { List } from './List';
 import { Link } from './Link';
 import { AlertCircleIcon } from './icons';
 import { BottomNavigation } from './BottomNavigation';
-import { defaultBottomNavItems, screenMainStyles, screenRootStyles } from './screen-layout';
+import {
+  defaultBottomNavItems,
+  screenFootnoteStyles,
+  screenMainStyles,
+  screenRootStyles,
+  screenSectionLabelStyles,
+  screenSectionGap,
+} from './screen-layout';
 
 const meta: Meta = {
   title: 'Screens/3. Settings',
@@ -31,26 +38,14 @@ const mainStyles: React.CSSProperties = {
   ...screenMainStyles,
 };
 
-const sectionTitleStyles: React.CSSProperties = {
-  fontSize: 'var(--text-xs)',
-  lineHeight: 'var(--text-xs--line-height)',
-  fontWeight: 'var(--font-semibold)',
-  letterSpacing: '0.05em',
-  textTransform: 'uppercase' as const,
-  color: 'rgb(var(--text-subtile))',
-  margin: 0,
-  marginBottom: 'var(--space-2)',
-  paddingLeft: 'var(--space-2)',
-};
-
 export const Overview: Story = {
   render: () => (
     <div style={screenRootStyles}>
       <Header title="Settings" showBackButton />
 
       <main style={mainStyles}>
-        <section>
-          <h2 style={sectionTitleStyles}>Account</h2>
+        <section style={{ marginBottom: screenSectionGap }}>
+          <h2 style={screenSectionLabelStyles}>Account</h2>
           <Card variant="plain">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List
@@ -103,8 +98,8 @@ export const Overview: Story = {
           </Card>
         </section>
 
-        <section>
-          <h2 style={sectionTitleStyles}>Preferences</h2>
+        <section style={{ marginBottom: screenSectionGap }}>
+          <h2 style={screenSectionLabelStyles}>Preferences</h2>
           <Card variant="plain">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List
@@ -129,8 +124,8 @@ export const Overview: Story = {
           </Card>
         </section>
 
-        <section>
-          <h2 style={sectionTitleStyles}>Support</h2>
+        <section style={{ marginBottom: screenSectionGap }}>
+          <h2 style={screenSectionLabelStyles}>Support</h2>
           <Card variant="plain">
             <div style={{ display: 'flex', flexDirection: 'column' }}>
               <List
@@ -155,7 +150,7 @@ export const Overview: Story = {
           </Card>
         </section>
 
-        <p style={{ fontSize: 'var(--text-sm)', color: 'rgb(var(--text-subtile))', margin: 0 }}>
+        <p style={screenFootnoteStyles}>
           <Link href="#" variant="muted">
             Log out
           </Link>

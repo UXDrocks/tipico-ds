@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from './ProgressBar';
+import { StoryFullWidth } from './StoryLayout';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components/ProgressBar',
@@ -10,7 +11,7 @@ const meta: Meta<typeof ProgressBar> = {
     docs: {
       description: {
         component:
-          'Horizontal progress bar with semantic color variants (neutral, positive, info, negative, warning). The bar expands to full width of the preview by default.',
+          'Horizontal progress bar with semantic color variants (neutral, positive, info, negative, warning). Use **appearance** `solid` for a plain filled background, or `gradient` (default) for a gradient fill. The bar expands to full width of the preview by default.',
       },
     },
   },
@@ -21,6 +22,10 @@ const meta: Meta<typeof ProgressBar> = {
     variant: {
       control: 'select',
       options: ['neutral', 'positive', 'info', 'negative', 'warning'],
+    },
+    appearance: {
+      control: 'radio',
+      options: ['gradient', 'solid'],
     },
   },
 };
@@ -35,16 +40,9 @@ export const Overview: Story = {
     variant: 'positive',
   },
   render: (args) => (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: '100%',
-        padding: 'var(--space-8)',
-        boxSizing: 'border-box',
-      }}
-    >
+    <StoryFullWidth>
       <ProgressBar {...args} />
-    </div>
+    </StoryFullWidth>
   ),
 };
 
@@ -54,16 +52,22 @@ export const Playground: Story = {
     variant: 'info',
   },
   render: (args) => (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: '100%',
-        padding: 'var(--space-8)',
-        boxSizing: 'border-box',
-      }}
-    >
+    <StoryFullWidth>
       <ProgressBar {...args} />
-    </div>
+    </StoryFullWidth>
+  ),
+};
+
+export const SolidFill: Story = {
+  args: {
+    value: 65,
+    variant: 'positive',
+    appearance: 'solid',
+  },
+  render: (args) => (
+    <StoryFullWidth>
+      <ProgressBar {...args} />
+    </StoryFullWidth>
   ),
 };
 

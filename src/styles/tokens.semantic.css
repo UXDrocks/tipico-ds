@@ -212,5 +212,8 @@
   --bg-list-default: var(--base-neutrals-900);
   --bg-list-hover: var(--base-alpha-white-5);
   --bg-list-active: var(--base-alpha-white-10);
+
+  /* Progress bar track and other subtle surfaces: visible on dark (was alpha-black-5) */
+  --bg-border-subtile: var(--base-alpha-white-10);
 }
 

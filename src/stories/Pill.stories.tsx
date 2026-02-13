@@ -55,6 +55,10 @@ export const Overview: Story = {
       style={{
         display: 'grid',
         gap: 'var(--space-4)',
+        width: '100%',
+        maxWidth: '100%',
+        minWidth: 0,
+        boxSizing: 'border-box',
       }}
     >
       <div
@@ -63,6 +67,7 @@ export const Overview: Story = {
           gap: 'var(--space-4)',
           alignItems: 'center',
           flexWrap: 'wrap',
+          minWidth: 0,
         }}
       >
         <Pill variant="neutral" active>
@@ -88,6 +93,7 @@ export const Overview: Story = {
           gap: 'var(--space-4)',
           alignItems: 'center',
           flexWrap: 'wrap',
+          minWidth: 0,
         }}
       >
         <Pill variant="neutral" active={false}>
