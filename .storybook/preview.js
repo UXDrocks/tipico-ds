@@ -2,47 +2,104 @@ import { jsx as _jsx } from "react/jsx-runtime";
 import '../src/styles/fonts.css';
 import '../src/styles/tokens.primitives.css';
 import '../src/styles/tokens.semantic.css';
-import '../src/styles/tokens.light.css';
-import '../src/styles/tokens.dark.css';
 import '../src/styles/theme.css';
-var preview = {
-    parameters: {
-        layout: 'centered',
-        actions: { argTypesRegex: '^on[A-Z].*' },
-        controls: {
-            matchers: {
-                color: /(background|color)$/i,
-                date: /Date$/,
-            },
-        },
+import '../src/styles/storybook-overrides.css';
+
+const preview = {
+  parameters: {
+    // Use fullscreen so stories can take the full available width/height.
+    layout: 'fullscreen',
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
     },
-    globalTypes: {
-        theme: {
-            name: 'Theme',
-            description: 'Global theme for components',
-            defaultValue: 'light',
-            toolbar: {
-                icon: 'circlehollow',
-                items: [
-                    { value: 'light', title: 'Light' },
-                    { value: 'dark', title: 'Dark' },
-                ],
-                dynamicTitle: true,
-            },
-        },
+  },
+  globalTypes: {
+    theme: {
+      name: 'Theme',
+      description: 'Global theme for components',
+      defaultValue: 'light',
+      toolbar: {
+        title: 'Theme',
+        icon: 'circlehollow',
+        items: [
+          { value: 'light', title: 'Light' },
+          { value: 'dark', title: 'Dark' },
+        ],
+        dynamicTitle: true,
+      },
     },
-    decorators: [
-        function (Story, context) {
-            var theme = context.globals.theme;
-            return (_jsx("div", { className: theme === 'dark' ? 'dark' : undefined, style: {
-                    minHeight: '100vh',
-                    background: 'rgb(var(--bg))',
-                    color: 'rgb(var(--fg))',
-                    padding: 24,
-                    boxSizing: 'border-box',
-                    fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
-                }, children: _jsx(Story, {}) }));
-        },
-    ],
+    viewportWidth: {
+      description: 'Preview width (Tailwind breakpoints)',
+      toolbar: {
+        title: 'Width',
+        icon: 'sidebaralt',
+        items: [
+          { value: '350', title: '350px (min)' },
+          { value: '640', title: 'sm (640px)' },
+          { value: '768', title: 'md (768px)' },
+          { value: '1024', title: 'lg (1024px)' },
+          { value: '1280', title: 'xl (1280px)' },
+          { value: '1536', title: '2xl (1536px)' },
+          { value: 'full', title: 'Auto' },
+        ],
+        dynamicTitle: true,
+      },
+    },
+  },
+  initialGlobals: {
+    theme: 'light',
+    viewportWidth: '640',
+  },
+  decorators: [
+    (Story, context) => {
+      const theme = context.globals?.theme ?? 'light';
+      const layout = context.parameters?.layout ?? 'fullscreen';
+      const isCentered = layout === 'centered';
+      const viewportWidth = context.globals?.viewportWidth ?? 'full';
+
+      // Map toolbar value to a concrete max-width in pixels (or full-width).
+      const resolvedWidth =
+        viewportWidth === 'full' ? '100%' : `${Number(viewportWidth || 0) || 0}px`;
+
+      const containerMaxWidth = isCentered ? '48rem' : resolvedWidth;
+
+      return (
+        _jsx("div", {
+          className: theme === 'dark' ? 'dark' : undefined,
+          style: {
+            minHeight: '100vh',
+            background: 'rgb(var(--bg))',
+            color: 'rgb(var(--fg))',
+            boxSizing: 'border-box',
+            fontFamily: 'Inter, system-ui, -apple-system, sans-serif',
+          },
+          children: _jsx("div", {
+            style: {
+              minHeight: '100vh',
+              boxSizing: 'border-box',
+              display: isCentered ? 'flex' : 'block',
+              alignItems: isCentered ? 'flex-start' : undefined,
+              justifyContent: isCentered ? 'center' : undefined,
+              padding: isCentered ? 'var(--space-8)' : 0,
+            },
+            children: _jsx("div", {
+              style: {
+                width: '100%',
+                maxWidth: containerMaxWidth,
+                margin: resolvedWidth === '100%' ? undefined : '0 auto',
+                minHeight: '100vh',
+              },
+              children: _jsx(Story, {}),
+            }),
+          }),
+        })
+      );
+    },
+  ],
 };
+
 export default preview;

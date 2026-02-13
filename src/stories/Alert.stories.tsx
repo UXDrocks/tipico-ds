@@ -225,49 +225,20 @@ export const DarkMode: Story = {
   parameters: {
     backgrounds: { disable: true },
   },
-  decorators: [
-    (Story) => (
-      <div
-        className="dark"
-        style={{
-          padding: 'var(--space-4)',
-          background: 'rgb(var(--bg))',
-          borderRadius: 'var(--radius-md)',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
   args: {
     variant: 'info',
     title: 'Headline (dark)',
     children: defaultBody,
     link: { href: '#', label: 'Learn more' },
   },
+  // Use the global Theme toolbar (dark) rather than a per-story .dark wrapper.
 };
 
 export const AllVariantsDark: Story = {
   parameters: {
     backgrounds: { disable: true },
   },
-  decorators: [
-    (Story) => (
-      <div
-        className="dark"
-        style={{
-          padding: 'var(--space-4)',
-          background: 'rgb(var(--bg))',
-          borderRadius: 'var(--radius-md)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 'var(--space-3)',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
+  // Rely on the global Theme toolbar for dark mode; this story just shows all variants.
   render: () => (
     <>
       <Alert variant="neutral" title="Neutral" link={{ href: '#', label: 'Link' }}>{defaultBody}</Alert>
