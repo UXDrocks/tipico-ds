@@ -26,19 +26,39 @@
   box-shadow: none;
 }
 
-.tipico-card--promoted {
-  /* 2px dotted border with alternating black and yellow look */
-  border: 2px dotted transparent;
-  box-shadow: none;
+.tipico-card--gradient {
+  /* Standard card border + radius */
+  border: 1px solid rgb(var(--border-standard));
   border-radius: var(--radius-card);
 
-  /* Create an alternating black/yellow pattern along the border */
-  border-image: repeating-linear-gradient(
-      90deg,
-      #000 0 4px,
-      #000 4px 6px,
-      #ffd600 6px 10px,
-      #ffd600 10px 12px
-    )
-    1;
+  /* Subtle vertical gradient inside the card */
+  background-image: linear-gradient(
+    180deg,
+    rgb(var(--bg-card)) 0%,
+    rgb(var(--bg-surface)) 50%,
+    rgb(var(--bg-card)) 100%
+  );
 }
+
+/* Promoted: card on card with striped header/footer peeking through */
+.tipico-card-promoted-shell {
+  position: relative;
+  z-index: 0;
+  padding-block: 2px; /* Reveal 2px of stripes above and below the inner card */
+  border-radius: calc(var(--radius-card) + 2px);
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgb(var(--base-black)) 0 80px,
+    rgb(var(--signals-bg-warning)) 80px 160px
+  );
+}
+
+.tipico-card--promoted-inner {
+  position: relative;
+  z-index: 1;
+  border-radius: var(--radius-card);
+  box-shadow:
+    0 2px 4px rgb(var(--base-alpha-black-10)),
+    0 0 0 1px rgb(var(--bg-border-subtile));
+}
+

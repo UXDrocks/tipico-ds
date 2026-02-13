@@ -27,7 +27,7 @@ Reusable content container built on the \`bg-card\` token.
   argTypes: {
     variant: {
       control: 'select',
-      options: ['plain', 'shadow', 'bordered'],
+      options: ['plain', 'shadow', 'bordered', 'promoted', 'gradient'],
     },
   },
 } satisfies Meta<typeof Card>;
