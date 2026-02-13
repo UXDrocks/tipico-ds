@@ -13,6 +13,11 @@ export const screenRootStyles: CSSProperties = {
   flexDirection: 'column',
 };
 
+/**
+ * Main content area for all screens. Use on <main> (or equivalent) so content
+ * has the same max-width and padding as Example Page and Login.
+ * Reference: Example Page, Login screen.
+ */
 export const screenMainStyles: CSSProperties = {
   width: '100%',
   maxWidth: '48rem',

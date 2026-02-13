@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react';
 
 import { BottomNavigation, type BottomNavigationItem } from './BottomNavigation';
 import { HomeIcon, SearchIcon, StarIcon, BellIcon, UserIcon } from './icons';
+import { screenMainStyles, screenRootStyles } from './screen-layout';
 
 const meta: Meta<typeof BottomNavigation> = {
   title: 'Components/BottomNavigation',
@@ -45,23 +46,8 @@ export const Overview: Story = {
     const [activeId, setActiveId] = useState<string>('home');
 
     return (
-      <div
-        style={{
-          minHeight: '100vh',
-          display: 'flex',
-          flexDirection: 'column',
-          background: 'rgb(var(--bg))',
-          color: 'rgb(var(--fg))',
-          fontFamily: 'var(--font-sans)',
-        }}
-      >
-        <main
-          style={{
-            flex: '1 1 auto',
-            width: '100%',
-            padding: 'var(--space-6) max(var(--space-4), 1rem)',
-          }}
-        >
+      <div style={screenRootStyles}>
+        <main style={{ ...screenMainStyles, flex: '1 1 auto' }}>
           <h1
             style={{
               fontSize: 'var(--font-size-xl)',
