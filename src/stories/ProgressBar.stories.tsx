@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { ProgressBar } from './ProgressBar';
+import { StoryFullWidth } from './StoryLayout';
 
 const meta: Meta<typeof ProgressBar> = {
   title: 'Components/ProgressBar',
@@ -39,16 +40,9 @@ export const Overview: Story = {
     variant: 'positive',
   },
   render: (args) => (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: '100%',
-        padding: 'var(--space-8)',
-        boxSizing: 'border-box',
-      }}
-    >
+    <StoryFullWidth>
       <ProgressBar {...args} />
-    </div>
+    </StoryFullWidth>
   ),
 };
 
@@ -58,16 +52,9 @@ export const Playground: Story = {
     variant: 'info',
   },
   render: (args) => (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: '100%',
-        padding: 'var(--space-8)',
-        boxSizing: 'border-box',
-      }}
-    >
+    <StoryFullWidth>
       <ProgressBar {...args} />
-    </div>
+    </StoryFullWidth>
   ),
 };
 
@@ -78,16 +65,9 @@ export const SolidFill: Story = {
     appearance: 'solid',
   },
   render: (args) => (
-    <div
-      style={{
-        width: '100%',
-        maxWidth: '100%',
-        padding: 'var(--space-8)',
-        boxSizing: 'border-box',
-      }}
-    >
+    <StoryFullWidth>
       <ProgressBar {...args} />
-    </div>
+    </StoryFullWidth>
   ),
 };
 

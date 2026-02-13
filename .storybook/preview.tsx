@@ -1,8 +1,6 @@
 import '../src/styles/fonts.css';
 import '../src/styles/tokens.primitives.css';
 import '../src/styles/tokens.semantic.css';
-import '../src/styles/tokens.light.css';
-import '../src/styles/tokens.dark.css';
 import '../src/styles/theme.css';
 import '../src/styles/storybook-overrides.css';
 
@@ -72,6 +70,13 @@ const preview: Preview = {
       const theme = context.globals?.theme ?? 'light';
       const layout = context.parameters?.layout ?? 'fullscreen';
       const isCentered = layout === 'centered';
+      const viewportWidth = context.globals?.viewportWidth ?? 'full';
+
+      // Map toolbar value to a concrete max-width in pixels (or full-width).
+      const resolvedWidth =
+        viewportWidth === 'full' ? '100%' : `${Number(viewportWidth || 0) || 0}px`;
+
+      const containerMaxWidth = isCentered ? '48rem' : resolvedWidth;
 
       return (
         <div
@@ -97,7 +102,8 @@ const preview: Preview = {
             <div
               style={{
                 width: '100%',
-                maxWidth: isCentered ? '48rem' : '100%',
+                maxWidth: containerMaxWidth,
+                margin: resolvedWidth === '100%' ? undefined : '0 auto',
                 minHeight: '100vh',
               }}
             >
