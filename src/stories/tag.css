@@ -1,0 +1,39 @@
+.tipico-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-sans);
+  font-size: var(--font-size-sm);
+  line-height: var(--leading-sm);
+  font-weight: var(--font-medium);
+  border-radius: 999px;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+/* Brand (red) */
+.tipico-tag--brand {
+  background-color: rgb(var(--branding-bg-brand));
+  color: rgb(var(--branding-text-cta-brand));
+}
+
+/* Neutral (white) */
+.tipico-tag--neutral {
+  background-color: rgb(var(--bg-white));
+  color: rgb(var(--text-black));
+  border-color: rgb(var(--border-standard));
+}
+
+/* Positive (green) */
+.tipico-tag--positive {
+  background-color: rgb(var(--signals-bg-positive));
+  color: rgb(var(--signals-text-cta-positive));
+}
+
+/* Info (blue) */
+.tipico-tag--info {
+  background-color: rgb(var(--signals-bg-info));
+  color: rgb(var(--signals-text-cta-info));
+}
+

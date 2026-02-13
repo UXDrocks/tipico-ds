@@ -13,10 +13,10 @@
 }
 
 .tipico-text-field__label {
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   font-weight: 600;
   color: rgb(var(--fg));
-  line-height: 1.25;
 }
 
 .tipico-text-field__label--hidden {
@@ -35,8 +35,8 @@
   width: 100%;
   max-width: 100%;
   padding: var(--space-3, 0.75rem) var(--space-4, 1rem);
-  font-size: 1rem;
-  line-height: 1.5;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
   font-family: inherit;
   color: rgb(var(--input-fg));
   background-color: rgb(var(--input-bg));
@@ -81,11 +81,13 @@
 }
 
 .tipico-text-field__error {
-  font-size: 0.8125rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   color: rgb(var(--negative));
 }
 
 .tipico-text-field__hint {
-  font-size: 0.8125rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   color: rgb(var(--fg-muted));
 }

@@ -1,5 +1,7 @@
+import React, { useState } from 'react';
 import type { Meta, StoryObj } from '@storybook/react';
 import { LoginScreen } from './LoginScreen';
+import { TipicoLogo } from './TipicoLogo';
 
 const meta = {
   title: 'Screens/LoginScreen',
@@ -7,7 +9,6 @@ const meta = {
   tags: ['autodocs'],
   parameters: {
     layout: 'fullscreen',
-    viewport: { defaultViewport: 'mobile1' },
     docs: {
       description: {
         component: `
@@ -68,16 +69,7 @@ export const WithLogo: Story = {
   args: {
     ...Default.args,
     header: (
-      <span
-        style={{
-          fontSize: '1.5rem',
-          fontWeight: 800,
-          color: 'rgb(var(--primary))',
-          letterSpacing: '-0.02em',
-        }}
-      >
-        Tipico
-      </span>
+      <TipicoLogo variant="red" />
     ),
     title: 'Welcome back',
     subtitle: 'Log in to your account to continue',
@@ -85,8 +77,18 @@ export const WithLogo: Story = {
 };
 
 export const WithSubmitError: Story = {
-  args: {
-    ...Default.args,
-    submitError: 'Invalid email or password. Please try again.',
+  render: (args) => {
+    const [error, setError] = useState<string | undefined>();
+
+    return (
+      <LoginScreen
+        {...args}
+        submitError={error}
+        onSubmit={(email, password) => {
+          console.log('Login attempt', { email, password });
+          setError('Invalid email or password. Please try again.');
+        }}
+      />
+    );
   },
 };

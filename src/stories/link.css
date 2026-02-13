@@ -15,6 +15,7 @@
 
 .tipico-link--default:hover {
   color: rgb(var(--link-hover));
+  text-decoration: underline;
 }
 
 .tipico-link--default:focus-visible {
@@ -29,4 +30,5 @@
 
 .tipico-link--muted:hover {
   color: rgb(var(--fg));
+  text-decoration: underline;
 }

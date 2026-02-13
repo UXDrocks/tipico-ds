@@ -9,14 +9,15 @@
   color: rgb(var(--fg));
 }
 
+/* Same max-width and padding as other screens (Example Page, Account Verification) */
 .tipico-login-screen__inner {
   flex: 1;
   display: flex;
   flex-direction: column;
   width: 100%;
-  max-width: 28rem;
+  max-width: 48rem;
   margin: 0 auto;
-  padding: var(--space-6, 1.5rem) var(--space-4, 1rem);
+  padding: var(--space-6, 1.5rem) max(var(--space-4, 1rem), 1rem) var(--space-8, 2rem);
   box-sizing: border-box;
 }
 
@@ -65,7 +66,8 @@
 
 .tipico-login-screen__submit-error {
   margin: 0;
-  font-size: 0.875rem;
+  font-size: var(--text-sm);
+  line-height: var(--text-sm--line-height);
   color: rgb(var(--negative));
 }
 
@@ -75,7 +77,8 @@
 
 .tipico-login-screen__signup {
   margin: 0;
-  font-size: 0.9375rem;
+  font-size: var(--text-base);
+  line-height: var(--text-base--line-height);
   color: rgb(var(--fg-muted));
   text-align: center;
 }

@@ -1,0 +1,5 @@
+.sb-main-fullscreen .sb-show-main {
+  /* Remove Storybook's default 24px padding around the preview area */
+  padding: 0 !important;
+}
+

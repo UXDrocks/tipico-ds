@@ -579,6 +579,66 @@ export const Overview: Story = {
         </div>
       </Section>
 
+      <Section title="Typography (Tailwind scale)">
+        <p
+          style={{
+            fontSize: 'var(--font-size-sm)',
+            lineHeight: 'var(--leading-sm)',
+            color: 'rgb(var(--fg-muted))',
+            marginBottom: 'var(--space-4)',
+          }}
+        >
+          Map Tailwind font-size utilities to tokens: <code>text-xs</code> →{' '}
+          <code>var(--text-xs)</code>, <code>text-sm</code> → <code>var(--text-sm)</code>,{' '}
+          <code>text-base</code> → <code>var(--text-base)</code>, etc.
+        </p>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))',
+            gap: 'var(--space-4)',
+          }}
+        >
+          {[
+            { label: 'text-xs', size: '--text-xs', lh: '--text-xs--line-height' },
+            { label: 'text-sm', size: '--text-sm', lh: '--text-sm--line-height' },
+            { label: 'text-base', size: '--text-base', lh: '--text-base--line-height' },
+            { label: 'text-lg', size: '--text-lg', lh: '--text-lg--line-height' },
+            { label: 'text-xl', size: '--text-xl', lh: '--text-xl--line-height' },
+          ].map(({ label, size, lh }) => (
+            <div
+              key={label}
+              style={{
+                padding: 'var(--space-3)',
+                borderRadius: 'var(--radius-md)',
+                border: '1px solid rgb(var(--border))',
+              }}
+            >
+              <div
+                style={{
+                  fontSize: `var(${size})`,
+                  lineHeight: `var(${lh})`,
+                  fontWeight: 'var(--font-medium)',
+                  marginBottom: 'var(--space-2)',
+                }}
+              >
+                The quick brown fox
+              </div>
+              <code
+                style={{
+                  display: 'block',
+                  fontSize: 'var(--font-size-xs)',
+                  lineHeight: 'var(--leading-xs)',
+                  color: 'rgb(var(--fg-muted))',
+                }}
+              >
+                {label} → {size}
+              </code>
+            </div>
+          ))}
+        </div>
+      </Section>
+
       <Section title="Spacing (Tailwind scale)">
         <p
           style={{
